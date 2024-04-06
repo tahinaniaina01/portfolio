@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css?family=Bangers:700|Bangers:400");
+@import url('https://fonts.googleapis.com/css?family=Lemonada:700|Lemonada:400');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 168 71% 99%;
+    --foreground: 171 51% 17%;
+
+    --card: 165 70% 92%;
+    --card-foreground: 168 45% 52%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 167 70% 72%;
+    --primary-foreground: 171 51% 17%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 167 53% 97%;
+    --muted-foreground: 170 97% 24%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 167 46% 65%;
+    --input: 167 46% 65%;
+    --ring: 167 46% 65%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 180 20% 7%;
+    --foreground: 156 71% 86%;
+
+    --card: 178 66% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 167 70% 72%;
+    --primary-foreground: 171 51% 17%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 156 71% 86%;
+
+    --muted: 180 29% 8%;
+    --muted-foreground: 167 60% 59%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 170 53% 33%
+    --input: 0 0% 14.9%;
+    --ring: 173 55% 26%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border font-body;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.transition {
+  transition: 0.5s;
+}
+
+.menu {
+  @apply relative h-[40px] w-[40px] md:hidden flex items-center justify-center cursor-pointer z-50;
+  transition: 0.5s;
+}
+
+.menu::before,
+.menu::after {
+  @apply content-[''] absolute h-[3px] bg-foreground rounded-[2px] w-4/5;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu::before {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 0px hsl(var(--foreground));
+  transition: 1s;
+}
+
+.menu::after {
+  transform: translateY(10px);
+}
+
+.menu.open::before {
+  box-shadow: none;
+  transform: rotateZ(45deg);
+}
+
+.menu.open::after {
+  transform: rotateZ(-45deg);
+}
+
+.menu.open::after {
+  @apply dark:bg-background;
+}
+.menu.open::before {
+  @apply dark:bg-background;
+}
+
+.lg-bg{
+  background: linear-gradient(-45deg, hsl(var(--foreground)), transparent, transparent);
+}
+
+/*
+  LIGHT
+  1 : 168 71% 99% #faffff
+  2 : 167 53% 97% #f3fbfa
+  3 : 165 70% 92% #dcf9f2
+  4 : 165 67% 87% #c8f4e9
+  5 : 165 60% 81% #b1ecdd
+  6 : 166 52% 75% #9ee0d1
+  7 : 167 46% 65% #7dcfbd
+  8 : 168 45% 52% #4ebca6
+  9 : 167 70% 72% #86ead4
+  10 : 167 61% 68% #7cdfca
+  11 : 170 97% 24% #027965
+  12 : 171 51% 17% #15413b
+*/
+/*
+  DARK
+  1 : 180 20% 7%
+  2 : 180 29% 8%
+  3 : 178 66% 10%
+  4 : 178 100% 11%
+  5 : 177 100% 14%
+  6 : 175 69% 20%
+  7 : 173 55% 26%
+  8 : 170 53% 33%
+  9 : 167 70% 72%
+  10 : 168 79% 81%
+  11 : 167 60% 59%
+  12 : 156 71% 86%
+*/
+
+/*
+.dark {
+    --background: 353 18% 10%;
+    --foreground: 350 73% 90%;
+
+    --card: 354 34% 16%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 60% 58%;
+    --primary-foreground: 215 20.2% 65.1%;
+
+    --secondary: 287 36% 48%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 359 30% 70%;
+
+    --accent: 356 42% 22%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 556 47% 26%;
+    --input: 0 60% 58%;
+    --ring: 216 34% 17%;
+  }
+  1 : #191111 0 19% 8%
+  2 : #201314 355 25% 10%
+  3 : #3B1219 350 53% 15%
+  4 : #500F1C 348 68% 19%
+  5 : #611623 350 63% 23%
+  6 : #72232D 352 53% 29%
+  7 : #8C333A 355 47% 37%
+  8 : #B54548 358 45% 49%
+  9 : #E5484D 358 75% 59%
+  10 : #EC5D5E 360 79% 65%
+  11 : #FF9592 0 79% 65%
+  12 : #FFD1D9 0 79% 65%
+*/
+/* .test {
+  background-color: hsl(353 18% 10%);
+  color: hsl(350 73% 90%);
+}
+.test {
+  background-color: hsl(354 34% 16%);
+  color: hsl(213 31% 91%);
+}
+.test {
+  background-color: hsl(224 71% 4%);
+  color: hsl(0 0% 98%);
+}
+.test {
+  background-color: hsl(0 60% 58%);
+  color: hsl(215 20.2% 65.1%);
+}
+.test {
+  background-color: hsl(287 36% 48%);
+  color: hsl(210 40% 98%);
+}
+.test {
+  background-color: hsl(223 47% 11%);
+  color: hsl(359 30% 70%);
+} */
