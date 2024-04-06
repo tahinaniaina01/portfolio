@@ -12,7 +12,7 @@ export default function Project() {
         "Portfolio created by reactjs and tailwindcss and typescript",
       image: portfolio,
       link: "#",
-      github: undefined,
+      github: "https://github.com/tahinaniaina01/portfolio/",
     },
     {
       title: "e-commerce site",
