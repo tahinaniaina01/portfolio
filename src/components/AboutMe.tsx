@@ -21,7 +21,7 @@ export default function AboutMe() {
         About me
       </motion.h1>
       <div className="container grid grid-cols-1 lg:grid-cols-2">
-        <div className="w-full p-5 flex flex-col items-center">
+        <div className="w-full p-5 hidden lg:flex flex-col items-center">
           <h1 className="text-2xl lg:text-4xl text-center">
             I am a Developper Web
           </h1>
@@ -30,7 +30,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div>
-          <p>
+          <p className="text-sm lg:text-lg">
             Hello and welcome to my "About Me" section. I am Tahinaniaina,
             passionate about IT and especially the field of web development,
             with solid experience in web development, graphic design, project
@@ -48,31 +48,33 @@ export default function AboutMe() {
               <div className="flex flex-col items-start">
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Name</h2>
-                  <p className="text-lg">Tahina</p>
+                  <p className="text-sm lg:text-lg">Tahina</p>
                 </div>
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Phone</h2>
-                  <p className="text-lg">+261 34 50 713 37</p>
+                  <p className="text-sm lg:text-lg">+261 34 50 713 37</p>
                 </div>
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Email</h2>
-                  <p className="text-lg">tahinaniaina01@gmail.com</p>
+                  <p className="text-sm lg:text-lg">tahinaniaina01@gmail.com</p>
                 </div>
               </div>
               <div className="flex flex-col items-start">
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Location</h2>
-                  <p className="text-lg">Madagascar / Antananarivo</p>
+                  <p className="text-sm lg:text-lg">
+                    Madagascar / Antananarivo
+                  </p>
                 </div>
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Education</h2>
-                  <p className="text-lg">
+                  <p className="text-sm lg:text-lg">
                     Mention Informatique et Téchnologie Antananarivo
                   </p>
                 </div>
                 <div className="my-3">
                   <h2 className="text-xl font-bold">Age</h2>
-                  <p className="text-lg">19</p>
+                  <p className="text-sm lg:text-lg">19</p>
                 </div>
               </div>
             </div>

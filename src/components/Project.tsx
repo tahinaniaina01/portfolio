@@ -63,13 +63,12 @@ export default function Project() {
           className="flex items-center justify-center px-5 lg:px-9 m-5 rounded-xl bg-background flex-col w-full max-w-[480px] mx-auto min-h-[200px] border"
         >
           <h1 className="font-heading my-5 text-2xl lg-text-6xl">my project</h1>
-          <p className="text-center">
-            Mon portfolio met en avant mes compétences et réalisations
-            professionnelles, tandis que mon site e-commerce offre une
-            plateforme conviviale pour acheter mes produits ou services en
-            ligne. Parallèlement, mon projet hôtelier simplifie le processus de
-            réservation en ligne, offrant à mes clients une expérience fluide
-            pour réserver leur séjour dans mon établissement
+          <p className="text-center text-sm lb:text-lg">
+            My portfolio highlights my skills and achievements professional,
+            while my e-commerce site offers user-friendly platform to buy my
+            products or services online line. At the same time, my hotel project
+            simplifies the process of online booking, providing my customers
+            with a seamless experience to book their stay in my establishment
           </p>
         </motion.div>
         {projects.map((project, index) => {
@@ -89,3 +88,20 @@ export default function Project() {
     </section>
   );
 }
+/*
+  My portfolio highlights my skills and achievements
+  professional, while my e-commerce site offers
+  user-friendly platform to buy my products or services online
+  line. At the same time, my hotel project simplifies the process of
+  online booking, providing my customers with a seamless experience
+  to book their stay in my establishment
+*/
+
+/*
+  Mon portfolio met en avant mes compétences et réalisations
+  professionnelles, tandis que mon site e-commerce offre une
+  plateforme conviviale pour acheter mes produits ou services en
+  ligne. Parallèlement, mon projet hôtelier simplifie le processus de
+  réservation en ligne, offrant à mes clients une expérience fluide
+  pour réserver leur séjour dans mon établissement
+*/
