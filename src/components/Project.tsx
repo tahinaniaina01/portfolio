@@ -12,7 +12,11 @@ export default function Project() {
         "Portfolio created by reactjs and tailwindcss and typescript",
       image: portfolio,
       link: "#",
+<<<<<<< HEAD
       github: undefined,
+=======
+      github: "https://github.com/tahinaniaina01/portfolio/",
+>>>>>>> 3026c8bb2c7a2d0eb3be5bdf2a1b126c6832e074
     },
     {
       title: "e-commerce site",
@@ -63,12 +67,22 @@ export default function Project() {
           className="flex items-center justify-center px-5 lg:px-9 m-5 rounded-xl bg-background flex-col w-full max-w-[480px] mx-auto min-h-[200px] border"
         >
           <h1 className="font-heading my-5 text-2xl lg-text-6xl">my project</h1>
+<<<<<<< HEAD
           <p className="text-center text-sm lb:text-lg">
             My portfolio highlights my skills and achievements professional,
             while my e-commerce site offers user-friendly platform to buy my
             products or services online line. At the same time, my hotel project
             simplifies the process of online booking, providing my customers
             with a seamless experience to book their stay in my establishment
+=======
+          <p className="text-center">
+            Mon portfolio met en avant mes compétences et réalisations
+            professionnelles, tandis que mon site e-commerce offre une
+            plateforme conviviale pour acheter mes produits ou services en
+            ligne. Parallèlement, mon projet hôtelier simplifie le processus de
+            réservation en ligne, offrant à mes clients une expérience fluide
+            pour réserver leur séjour dans mon établissement
+>>>>>>> 3026c8bb2c7a2d0eb3be5bdf2a1b126c6832e074
           </p>
         </motion.div>
         {projects.map((project, index) => {
@@ -88,6 +102,7 @@ export default function Project() {
     </section>
   );
 }
+<<<<<<< HEAD
 /*
   My portfolio highlights my skills and achievements
   professional, while my e-commerce site offers
@@ -105,3 +120,5 @@ export default function Project() {
   réservation en ligne, offrant à mes clients une expérience fluide
   pour réserver leur séjour dans mon établissement
 */
+=======
+>>>>>>> 3026c8bb2c7a2d0eb3be5bdf2a1b126c6832e074

@@ -121,9 +121,12 @@
 .lg-bg{
   background: linear-gradient(-45deg, hsl(var(--foreground)), transparent, transparent);
 }
+<<<<<<< HEAD
 .clip-path-img{
   clip-path: polygon(0% 0%, 80% 0, 100% 20%, 100% 100%, 0% 100%);
 }
+=======
+>>>>>>> 3026c8bb2c7a2d0eb3be5bdf2a1b126c6832e074
 
 /*
   LIGHT
