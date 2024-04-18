@@ -1,6 +1,7 @@
 import img from "@/assets/logo.png";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 import { ModeToggle } from "./mode-tooggle";
 
@@ -8,6 +9,7 @@ export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
   const ref = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [t] = useTranslation("global");
 
   useEffect(() => {
     const hundleScroll = () => {
@@ -32,7 +34,7 @@ export default function Header() {
           onClick={() => setIsOpen(false)}
           className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
         >
-          Home
+          {t("header.home")}
         </Link>
         <Link
           to="projects"
@@ -42,7 +44,7 @@ export default function Header() {
           onClick={() => setIsOpen(false)}
           className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
         >
-          Projects
+          {t("header.project")}
         </Link>
         <Link
           to="about"
@@ -52,7 +54,7 @@ export default function Header() {
           onClick={() => setIsOpen(false)}
           className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
         >
-          About me
+          {t("header.about")}
         </Link>
         <Link
           to="skills"
@@ -62,7 +64,7 @@ export default function Header() {
           onClick={() => setIsOpen(false)}
           className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
         >
-          Skills
+          {t("header.skills")}
         </Link>
         <Link
           to="contact"
@@ -72,7 +74,7 @@ export default function Header() {
           onClick={() => setIsOpen(false)}
           className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
         >
-          Contact
+          {t("header.contact")}
         </Link>
       </nav>
     );
