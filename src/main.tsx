@@ -9,7 +9,7 @@ import "./index.css";
 
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: "fr",
+  lng: "en",
   resources: {
     fr: {
       global: global_fr,

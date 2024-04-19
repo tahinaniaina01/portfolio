@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FaFacebook, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import img from "../assets/tahina.png";
 
 export default function Hero() {
+  const [t] = useTranslation("global");
   const parentVarients = {
     hidden: {
       opacity: 0,
@@ -59,7 +61,7 @@ export default function Hero() {
             variants={textVariants}
             className="text-center md:text-start pl-5 text-sm lg:text-lg"
           >
-            Hey there I'm
+            {t("hero.preamble")}
           </motion.p>
           <motion.h1
             variants={textVariants}
@@ -76,7 +78,7 @@ export default function Hero() {
             variants={textVariants}
             className="text-center md:text-start xl:text-2xl lg:text-xl text-lg"
           >
-            I am web developper
+            {t("hero.body")}
           </motion.h5>
           <div className="items-center gap-3 mt-7 grid lg:grid-cols-4 grid-cols-2">
             <motion.a

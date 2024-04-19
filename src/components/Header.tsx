@@ -4,12 +4,21 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
 import { ModeToggle } from "./mode-tooggle";
+import { Button } from "./ui/button";
+import { Switch } from "./ui/switch";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
+  const [langage, setLangage] = useState<"en" | "fr">("en");
   const ref = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [t] = useTranslation("global");
+  const [t, i18n] = useTranslation("global");
+
+  const handleCLick = () => {
+    const l = langage === "fr" ? "en" : "fr";
+    i18n.changeLanguage(l);
+    setLangage(l);
+  };
 
   useEffect(() => {
     const hundleScroll = () => {
@@ -104,8 +113,10 @@ export default function Header() {
           <img src={img} alt="" className="object-cover w-[60px] h-[60px]" />
         </div>
         <NavBar className="hidden md:flex" />
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-x-3">
+          <Switch onClick={() => handleCLick()} />
           <ModeToggle />
+          <Button>Work with me</Button>
         </div>
         <div
           className={`menu ${isOpen ? "open" : ""}`}
@@ -120,9 +131,11 @@ export default function Header() {
         <NavBar
           className={`flex flex-col text-end gap-y-2  dark:text-background`}
         />
-        <div className="mr-5">
+        <div className="mr-5 flex items-center gap-x-3">
+          <Switch onClick={() => handleCLick()} />
           <ModeToggle />
         </div>
+        <Button className="bg-card">Work with me</Button>
       </div>
     </motion.header>
   );

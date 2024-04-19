@@ -1,109 +1,155 @@
 import image from "@/assets/tahina.png";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function AboutMe() {
+  const [t] = useTranslation("global");
+  const parentVarients = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+  const variantScale = {
+    hidden: {
+      scale: 0,
+    },
+    visible: {
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        type: "spring",
+      },
+    },
+  };
+
   return (
     <section id="about" className="w-full my-16">
       <motion.h1
-        initial={{
-          scale: 0,
-        }}
-        whileInView={{
-          scale: 1,
-          transition: {
-            duration: 0.5,
-            type: "spring",
-          },
-        }}
+        variants={variantScale}
+        initial={"hidden"}
+        whileInView={"visible"}
         className="text-center text-6xl my-7 font-heading"
       >
-        About me
+        {t("about.title")}
       </motion.h1>
       <div className="container grid grid-cols-1 lg:grid-cols-2">
-        <div className="w-full p-5 hidden lg:flex flex-col items-center">
-          <h1 className="text-2xl lg:text-4xl text-center">
-            I am a Developper Web
-          </h1>
-          <div className="overflow-hidden bg-primary clip-path-img flex justify-center mx-10 my-5 max-w-[350px]">
-            <img src={image} alt="" className="object-cover" />
-          </div>
+        <div className="w-full p-5 hidden lg:flex flex-col items-center justify-between">
+          <motion.h1
+            variants={variantScale}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="text-2xl lg:text-4xl text-center h-1/5"
+          >
+            {t("about.preamble")}
+          </motion.h1>
+          <motion.div
+            initial={{
+              rotateY: 90,
+            }}
+            whileInView={{
+              rotateY: 0,
+              transition: {
+                duration: 0.2,
+                ease: "easeOut",
+              },
+            }}
+            className="overflow-hidden bg-primary clip-path-img flex justify-center mx-10 my-5 max-w-[350px]"
+          >
+            <motion.img
+              initial={{
+                y: 200,
+                opacity: 0,
+              }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  duration: 0.2,
+                  delay: 0.2,
+                },
+              }}
+              src={image}
+              alt=""
+              className="object-cover"
+            />
+          </motion.div>
         </div>
         <div>
-          <p className="text-sm lg:text-lg">
-            Hello and welcome to my "About Me" section. I am Tahinaniaina,
-            passionate about IT and especially the field of web development,
-            with solid experience in web development, graphic design, project
-            management, etc. During my career, I have had the opportunity to
-            work on a variety of projects that have enabled the development of a
-            range of skills from design to implementation, including testing and
-            optimization. I have a real passion for computers and technology,
-            and I'm always looking for new opportunities to learn and improve.
-          </p>
-          <div className="pt-5">
-            <h1 className="font-heading text-2xl lg:text-4xl my-3">
-              Personal Information
-            </h1>
+          <motion.p
+            variants={variantScale}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="text-sm lg:text-lg"
+          >
+            {t("about.description")}
+          </motion.p>
+          <motion.div
+            variants={parentVarients}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="pt-5"
+          >
+            <motion.h1
+              variants={variantScale}
+              initial={"hidden"}
+              whileInView={"visible"}
+              className="font-heading text-2xl lg:text-4xl my-3"
+            >
+              {t("about.infoTitle")}
+            </motion.h1>
             <div className="grid grid-cols-2">
-              <div className="flex flex-col items-start">
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Name</h2>
-                  <p className="text-sm lg:text-lg">Tahina</p>
-                </div>
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Phone</h2>
-                  <p className="text-sm lg:text-lg">+261 34 50 713 37</p>
-                </div>
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Email</h2>
-                  <p className="text-sm lg:text-lg">tahinaniaina01@gmail.com</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-start">
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Location</h2>
-                  <p className="text-sm lg:text-lg">
-                    Madagascar / Antananarivo
-                  </p>
-                </div>
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Education</h2>
-                  <p className="text-sm lg:text-lg">
-                    Mention Informatique et Téchnologie Antananarivo
-                  </p>
-                </div>
-                <div className="my-3">
-                  <h2 className="text-xl font-bold">Age</h2>
-                  <p className="text-sm lg:text-lg">19</p>
-                </div>
-              </div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">
+                  {t("about.infoName.name")}
+                </h2>
+                <p className="text-sm lg:text-lg">Tahina</p>
+              </motion.div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">
+                  {t("about.infoName.location")}
+                </h2>
+                <p className="text-sm lg:text-lg">Madagascar / Antananarivo</p>
+              </motion.div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">
+                  {t("about.infoName.phone")}
+                </h2>
+                <p className="text-sm lg:text-lg">+261 34 50 713 37</p>
+              </motion.div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">
+                  {t("about.infoName.education")}
+                </h2>
+                <p className="text-xs lg:text-sm">
+                  Mention Informatique et Téchnologie Antananarivo
+                </p>
+              </motion.div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">
+                  {t("about.infoName.email")}
+                </h2>
+                <p className="text-sm lg:text-lg">tahinaniaina01@gmail.com</p>
+              </motion.div>
+              <motion.div variants={variantScale} className="my-3">
+                <h2 className="text-xl font-bold">{t("about.infoName.age")}</h2>
+                <p className="text-sm lg:text-lg">19</p>
+              </motion.div>
             </div>
             <Button className="bg-primary rounded-full px-7 py-5 my-5 text-xl">
-              Download CV
+              {t("about.button")}
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-
-/*
-  Bonjour et bienvenue dans ma section "À propos de moi". Je suis Tahinaniaina, 
-  un passionné de de l’informatique et surtout le domaine de la développement web, 
-  avec une solide expérience dans le développement web, le design graphique, la gestion de projet, etc.
-  Au cours de ma carrière, j'ai eu l'opportunité de travailler sur une variété de projets qui m'ont 
-  permis de développer une gamme de compétences allant de la conception à la mise en œuvre, en passant par
-  le test et l'optimisation. J'ai une véritable passion pour les informatiques et téchnologie, 
-  et je suis toujours à la recherche de nouvelles opportunités pour apprendre et m'améliorer.
-*/
-/*
-  Hello and welcome to my "About Me" section. I am Tahinaniaina,
-  passionate about IT and especially the field of web development,
-  with solid experience in web development, graphic design, project
-  management, etc. During my career, I have had the opportunity to
-  work on a variety of projects that have enabled the development of a
-  range of skills from design to implementation, including testing and
-  optimization. I have a real passion for computers and technology,
-  and I'm always looking for new opportunities to learn and improve.
-*/
