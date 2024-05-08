@@ -1,5 +1,4 @@
 import img from "@/assets/logo.png";
-import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-scroll";
@@ -90,25 +89,15 @@ export default function Header() {
   }
 
   return (
-    <motion.header
+    <header
       ref={ref}
       className={`fixed top-0 left-0 w-full z-30 ${
-        isScroll
+        isScroll || isOpen
           ? "shadow-lg border-b-border border-b-2 bg-background"
           : "shadow-none border-none bg-transparent"
       }`}
-      initial={{
-        y: -150,
-      }}
-      animate={{
-        y: 0,
-        transition: {
-          duration: 0.5,
-          ease: "easeInOut",
-        },
-      }}
     >
-      <div className="container flex justify-between items-center py-3">
+      <div className="container flex justify-between items-center py-3 relative z-30">
         <div className="">
           <img src={img} alt="" className="object-cover w-[60px] h-[60px]" />
         </div>
@@ -124,19 +113,19 @@ export default function Header() {
         ></div>
       </div>
       <div
-        className={`fixed bg-primary top-0 flex flex-col items-end gap-y-5 px-3 ${
-          isOpen ? "right-0" : "-right-full"
-        } pt-[100px] pb-5 transition z-40`}
+        className={`fixed bg-primary left-0 w-full flex flex-col items-center gap-y-5 px-3 ${
+          isOpen ? "top-0" : "-top-full"
+        } pt-[100px] pb-5 transition`}
       >
         <NavBar
-          className={`flex flex-col text-end gap-y-2  dark:text-background`}
+          className={`flex flex-col text-center gap-y-2  dark:text-background`}
         />
-        <div className="mr-5 flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3">
           <Switch onClick={() => handleCLick()} />
           <ModeToggle />
         </div>
         <Button className="bg-card">Work with me</Button>
       </div>
-    </motion.header>
+    </header>
   );
 }

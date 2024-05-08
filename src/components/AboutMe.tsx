@@ -83,12 +83,12 @@ export default function AboutMe() {
             />
           </motion.div>
         </div>
-        <div>
+        <div className="xl:mr-12">
           <motion.p
             variants={variantScale}
             initial={"hidden"}
             whileInView={"visible"}
-            className="text-sm lg:text-lg"
+            className="text-sm lg:text-lg lg:text-start text-center"
           >
             {t("about.description")}
           </motion.p>
@@ -113,11 +113,16 @@ export default function AboutMe() {
                 </h2>
                 <p className="text-sm lg:text-lg">Tahina</p>
               </motion.div>
-              <motion.div variants={variantScale} className="my-3">
+              <motion.div
+                variants={variantScale}
+                className="my-3 flex flex-col items-end"
+              >
                 <h2 className="text-xl font-bold">
                   {t("about.infoName.location")}
                 </h2>
-                <p className="text-sm lg:text-lg">Madagascar / Antananarivo</p>
+                <p className="text-sm lg:text-lg text-end">
+                  Madagascar / Antananarivo
+                </p>
               </motion.div>
               <motion.div variants={variantScale} className="my-3">
                 <h2 className="text-xl font-bold">
@@ -125,11 +130,14 @@ export default function AboutMe() {
                 </h2>
                 <p className="text-sm lg:text-lg">+261 34 50 713 37</p>
               </motion.div>
-              <motion.div variants={variantScale} className="my-3">
+              <motion.div
+                variants={variantScale}
+                className="my-3 flex flex-col items-end"
+              >
                 <h2 className="text-xl font-bold">
                   {t("about.infoName.education")}
                 </h2>
-                <p className="text-xs lg:text-sm">
+                <p className="text-xs lg:text-sm text-end">
                   Mention Informatique et Téchnologie Antananarivo
                 </p>
               </motion.div>
@@ -139,7 +147,10 @@ export default function AboutMe() {
                 </h2>
                 <p className="text-sm lg:text-lg">tahinaniaina01@gmail.com</p>
               </motion.div>
-              <motion.div variants={variantScale} className="my-3">
+              <motion.div
+                variants={variantScale}
+                className="my-3 flex flex-col items-end"
+              >
                 <h2 className="text-xl font-bold">{t("about.infoName.age")}</h2>
                 <p className="text-sm lg:text-lg">19</p>
               </motion.div>

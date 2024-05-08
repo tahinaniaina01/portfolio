@@ -50,7 +50,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="mb-16">
-      <div className="container flex items-center xl:min-h-[900px] min-h-[600px] flex-col-reverse justify-center md:flex-row">
+      <div className="container flex items-center 2xl:h-[900px] lg:h-[768px] h-[600px] flex-col-reverse justify-center md:flex-row">
         <motion.div
           variants={parentVarients}
           initial={"hidden"}
