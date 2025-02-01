@@ -1,0 +1,28 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About me",
+    "skills": "skills",
+    "project": "project",
+    "contact": "contact"
+  },
+  "hero": {
+    "preamble": "Hey there I am",
+    "body": "I am a developper web"
+  },
+  "about": {
+    "title": "About me",
+    "preamble": "I am a web developper",
+    "description": "Hello and welcome to my \"About Me\" section. I am Tahinaniaina, passionate about IT and especially the field of web development, with solid experience in web development, graphic design, project management, etc. During my career, I have had the opportunity to work on a variety of projects that have enabled the development of a range of skills from design to implementation, including testing and optimization. I have a real passion for computers and technology, and I'm always looking for new opportunities to learn and improve.",
+    "infoTitle": "Personal Information",
+    "infoName": {
+      "name": "Name",
+      "location": "Location",
+      "phone": "Phone",
+      "education": "Education",
+      "email": "Email",
+      "age": "Age"
+    },
+    "button": "Download CV"
+  }
+}

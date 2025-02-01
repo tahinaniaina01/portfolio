@@ -1,0 +1,28 @@
+{
+  "header": {
+    "home": "Accueil",
+    "about": "a propos",
+    "skills": "compétence",
+    "project": "projet",
+    "contact": "contact"
+  },
+  "hero": {
+    "preamble": "Bonjour à vous, je suis",
+    "body": "Je suis un developpeur web"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "preamble": "Je suis un developpeur web",
+    "description": "Bonjour et bienvenue dans ma section \"À propos de moi\". Je suis Tahinaniaina, un passionné de de l’informatique et surtout le domaine de la développement web, avec une solide expérience dans le développement web, le design graphique, la gestion de projet, etc.Au cours de ma carrière, j'ai eu l'opportunité de travailler sur une variété de projets qui m'ont permis de développer une gamme de compétences allant de la conception à la mise en œuvre, en passant par  le test et l'optimisation. J'ai une véritable passion pour les informatiques et téchnologie, et je suis toujours à la recherche de nouvelles opportunités pour apprendre et m'améliorer.",
+    "infoTitle": "Information presonnelle",
+    "infoName": {
+      "name": "Nom",
+      "location": "Adresse",
+      "phone": "Téléphone",
+      "education": "Education",
+      "email": "Mail",
+      "age": "Age"
+    },
+    "button": "Télécharger mon CV"
+  }
+}
