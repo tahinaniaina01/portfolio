@@ -1,9 +1,9 @@
 {
   "header": {
     "home": "Accueil",
-    "about": "a propos",
-    "skills": "compétence",
-    "project": "projet",
+    "services": "services",
+    "resume": "resumé",
+    "works": "travailles",
     "contact": "contact"
   },
   "hero": {

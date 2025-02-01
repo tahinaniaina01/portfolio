@@ -1,24 +1,43 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import { Button } from "@/src/components/ui/button";
+import { Link, usePathname } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ModeToggle } from "./mode-tooggle";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
-  const [langage, setLangage] = useState<"en" | "fr">("en");
+  // const [langage, setLangage] = useState<"en" | "fr">("en");
   const ref = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("header");
+  const pathname = usePathname();
 
-  const handleCLick = () => {
-    const l = langage === "fr" ? "en" : "fr";
-    // i18n.changeLanguage(l);
-    setLangage(l);
-  };
+  const links = [
+    {
+      label: t("home"),
+      href: "/",
+    },
+    {
+      label: t("services"),
+      href: "/services",
+    },
+    {
+      label: t("resume"),
+      href: "/resume",
+    },
+    {
+      label: t("works"),
+      href: "/works",
+    },
+    {
+      label: t("contact"),
+      href: "/contact",
+    },
+  ];
+
+  console.log(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,56 +54,23 @@ export default function Header() {
   function NavBar({ className }: { className?: string }) {
     return (
       <nav className={className}>
-        <Link
-          href="/fr/"
-          // smooth={true}
-          // duration={500}
-          // offset={-100}
-          onClick={() => setIsOpen(false)}
-          className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
-        >
-          {t("home")}
-        </Link>
-        <Link
-          href="/fr/projects"
-          // smooth={true}
-          // duration={500}
-          // offset={-100}
-          onClick={() => setIsOpen(false)}
-          className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
-        >
-          {t("project")}
-        </Link>
-        <Link
-          href="/fr/about"
-          // smooth={true}
-          // duration={500}
-          // offset={-100}
-          onClick={() => setIsOpen(false)}
-          className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
-        >
-          {t("about")}
-        </Link>
-        <Link
-          href="/fr/skills"
-          // smooth={true}
-          // duration={500}
-          // offset={-100}
-          onClick={() => setIsOpen(false)}
-          className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
-        >
-          {t("skills")}
-        </Link>
-        <Link
-          href="/fr/contact"
-          // smooth={true}
-          // duration={500}
-          // offset={-100}
-          onClick={() => setIsOpen(false)}
-          className="cursor-pointer px-3 lg:px-3 relative text-xl hover:text-muted-foreground before:transition-all before:duration-500 before:content-[''] before:absolute before:left-0 before:top-[100%] before:w-0 hover:before:w-full before:h-1 before:bg-muted-foreground before:rounded-full"
-        >
-          {t("contact")}
-        </Link>
+        {links.map((link, index) => {
+          const { label, href } = link;
+          return (
+            <Link
+              key={index}
+              href={href}
+              onClick={() => setIsOpen(false)}
+              className={`cursor-pointer px-3 lg:px-3 py-1 relative text-xl ${
+                pathname === href
+                  ? "text-ring before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:h-1 before:w-5 before:bg-ring"
+                  : "hover:text-ring/70"
+              }`}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     );
   }
@@ -104,7 +90,7 @@ export default function Header() {
         </div>
         <NavBar className="hidden md:flex" />
         <div className="hidden md:flex items-center gap-x-3">
-          <Switch onClick={() => handleCLick()} />
+          {/* <Switch onClick={() => handleCLick()} /> */}
           <ModeToggle />
           <Button>Work with me</Button>
         </div>
@@ -115,14 +101,14 @@ export default function Header() {
       </div>
       <div
         className={`fixed bg-primary left-0 w-full flex flex-col items-center gap-y-5 px-3 ${
-          isOpen ? "top-0" : "-top-full"
+          isOpen ? "top-0" : "-top-[120%]"
         } pt-[100px] pb-5 transition`}
       >
         <NavBar
           className={`flex flex-col text-center gap-y-2  dark:text-background`}
         />
         <div className="flex items-center gap-x-3">
-          <Switch onClick={() => handleCLick()} />
+          {/* <Switch onClick={() => handleCLick()} /> */}
           <ModeToggle />
         </div>
         <Button className="bg-card">Work with me</Button>

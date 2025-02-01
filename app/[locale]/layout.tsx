@@ -1,3 +1,4 @@
+import Header from "@/src/components/pages/global/Header";
 import CanvasCursor from "@/src/components/utils/CanvasCursor";
 import PageTransition from "@/src/components/utils/PageTransition";
 import StairTransition from "@/src/components/utils/StairTransition";
@@ -36,7 +37,7 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider messages={messages}>
             <CanvasCursor />
-            {/* <Header /> */}
+            <Header />
             <StairTransition />
             <PageTransition>{children}</PageTransition>
           </NextIntlClientProvider>

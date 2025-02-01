@@ -71,3 +71,44 @@ body {
     /* color: hsla(193, 98%, 74%, 0.932); */
   }
 }
+
+.transition {
+  transition: 0.5s;
+}
+
+.menu {
+  @apply relative h-[40px] w-[40px] md:hidden flex items-center justify-center cursor-pointer z-50;
+  transition: 0.5s;
+}
+
+.menu::before,
+.menu::after {
+  @apply content-[''] absolute h-[3px] bg-foreground rounded-[2px] w-4/5;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu::before {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 0px hsl(var(--foreground));
+  transition: 1s;
+}
+
+.menu::after {
+  transform: translateY(10px);
+}
+
+.menu.open::before {
+  box-shadow: none;
+  transform: rotateZ(45deg);
+}
+
+.menu.open::after {
+  transform: rotateZ(-45deg);
+}
+
+.menu.open::after {
+  @apply dark:bg-background;
+}
+.menu.open::before {
+  @apply dark:bg-background;
+}
