@@ -15,6 +15,12 @@
     "download": "Download CV",
     "body": "I am a developper web"
   },
+  "stats": {
+    "xp": "year of experience",
+    "projects": "projects completed",
+    "commit": "code commit",
+    "tech": "technology mastered"
+  },
   "about": {
     "title": "About me",
     "preamble": "I am a web developper",

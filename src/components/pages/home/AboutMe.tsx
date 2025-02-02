@@ -1,10 +1,11 @@
-import image from "@/assets/tahina.png";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { Button } from "@/src/components/ui/button";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 export default function AboutMe() {
-  const [t] = useTranslation("global");
+  const t = useTranslations("about");
   const parentVarients = {
     hidden: {
       opacity: 0,
@@ -32,25 +33,25 @@ export default function AboutMe() {
   };
 
   return (
-    <section id="about" className="w-full my-16">
+    <section id="about" className="w-full my-16 px-6 md:px-12">
       <motion.h1
         variants={variantScale}
         initial={"hidden"}
         whileInView={"visible"}
         className="text-center text-6xl my-7 font-heading"
       >
-        {t("about.title")}
+        {t("title")}
       </motion.h1>
-      <div className="container grid grid-cols-1 lg:grid-cols-2">
-        <div className="w-full p-5 hidden lg:flex flex-col items-center justify-between">
-          <motion.h1
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2">
+        <div className="w-full p-5 hidden lg:flex flex-col items-center justify-between bg-ring">
+          {/* <motion.h1
             variants={variantScale}
             initial={"hidden"}
             whileInView={"visible"}
             className="text-2xl lg:text-4xl text-center h-1/5"
           >
-            {t("about.preamble")}
-          </motion.h1>
+            {t("preamble")}
+          </motion.h1> */}
           <motion.div
             initial={{
               rotateY: 90,
@@ -62,9 +63,9 @@ export default function AboutMe() {
                 ease: "easeOut",
               },
             }}
-            className="overflow-hidden bg-primary clip-path-img flex justify-center mx-10 my-5 max-w-[350px]"
+            className="overflow-hidden clip-path-img flex justify-center mx-10 my-5 max-w-[350px] bg-ring"
           >
-            <motion.img
+            {/* <motion.img
               initial={{
                 y: 200,
                 opacity: 0,
@@ -80,17 +81,17 @@ export default function AboutMe() {
               src={image}
               alt=""
               className="object-cover"
-            />
+            /> */}
           </motion.div>
         </div>
-        <div className="xl:mr-12">
+        <div className="md:pl-7">
           <motion.p
             variants={variantScale}
             initial={"hidden"}
             whileInView={"visible"}
             className="text-sm lg:text-lg lg:text-start text-center"
           >
-            {t("about.description")}
+            {t("description")}
           </motion.p>
           <motion.div
             variants={parentVarients}
@@ -104,59 +105,49 @@ export default function AboutMe() {
               whileInView={"visible"}
               className="font-heading text-2xl lg:text-4xl my-3"
             >
-              {t("about.infoTitle")}
+              {t("infoTitle")}
             </motion.h1>
             <div className="grid grid-cols-2">
               <motion.div variants={variantScale} className="my-3">
-                <h2 className="text-xl font-bold">
-                  {t("about.infoName.name")}
-                </h2>
+                <h2 className="text-xl font-bold">{t("infoName.name")}</h2>
                 <p className="text-sm lg:text-lg">Tahina</p>
               </motion.div>
               <motion.div
                 variants={variantScale}
                 className="my-3 flex flex-col items-end"
               >
-                <h2 className="text-xl font-bold">
-                  {t("about.infoName.location")}
-                </h2>
+                <h2 className="text-xl font-bold">{t("infoName.location")}</h2>
                 <p className="text-sm lg:text-lg text-end">
                   Madagascar / Antananarivo
                 </p>
               </motion.div>
               <motion.div variants={variantScale} className="my-3">
-                <h2 className="text-xl font-bold">
-                  {t("about.infoName.phone")}
-                </h2>
+                <h2 className="text-xl font-bold">{t("infoName.phone")}</h2>
                 <p className="text-sm lg:text-lg">+261 34 50 713 37</p>
               </motion.div>
               <motion.div
                 variants={variantScale}
                 className="my-3 flex flex-col items-end"
               >
-                <h2 className="text-xl font-bold">
-                  {t("about.infoName.education")}
-                </h2>
+                <h2 className="text-xl font-bold">{t("infoName.education")}</h2>
                 <p className="text-xs lg:text-sm text-end">
                   Mention Informatique et Téchnologie Antananarivo
                 </p>
               </motion.div>
               <motion.div variants={variantScale} className="my-3">
-                <h2 className="text-xl font-bold">
-                  {t("about.infoName.email")}
-                </h2>
+                <h2 className="text-xl font-bold">{t("infoName.email")}</h2>
                 <p className="text-sm lg:text-lg">tahinaniaina01@gmail.com</p>
               </motion.div>
               <motion.div
                 variants={variantScale}
                 className="my-3 flex flex-col items-end"
               >
-                <h2 className="text-xl font-bold">{t("about.infoName.age")}</h2>
+                <h2 className="text-xl font-bold">{t("infoName.age")}</h2>
                 <p className="text-sm lg:text-lg">19</p>
               </motion.div>
             </div>
             <Button className="bg-primary rounded-full px-7 py-5 my-5 text-xl">
-              {t("about.button")}
+              {t("button")}
             </Button>
           </motion.div>
         </div>
