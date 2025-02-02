@@ -4,7 +4,8 @@ import { Button } from "@/src/components/ui/button";
 import { Link, usePathname } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { ModeToggle } from "./mode-tooggle";
+import ChangeLangage from "../../utils/ChangeLangage";
+import { ModeToggle } from "../../utils/mode-tooggle";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
@@ -90,8 +91,8 @@ export default function Header() {
         </div>
         <NavBar className="hidden md:flex" />
         <div className="hidden md:flex items-center gap-x-3">
-          {/* <Switch onClick={() => handleCLick()} /> */}
           <ModeToggle />
+          <ChangeLangage />
           <Button>Work with me</Button>
         </div>
         <div
@@ -108,7 +109,7 @@ export default function Header() {
           className={`flex flex-col text-center gap-y-2  dark:text-background`}
         />
         <div className="flex items-center gap-x-3">
-          {/* <Switch onClick={() => handleCLick()} /> */}
+          <ChangeLangage />
           <ModeToggle />
         </div>
         <Button className="bg-card">Work with me</Button>

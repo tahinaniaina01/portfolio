@@ -21,7 +21,7 @@ export function ModeToggle() {
     <Button
       variant={"outline"}
       size={"icon"}
-      className="relative flex items-center justify-center"
+      className="relative flex items-center justify-center aspect-square"
       onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
     >
       <Moon
