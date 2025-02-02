@@ -7,8 +7,13 @@
     "contact": "contact"
   },
   "hero": {
-    "preamble": "Bonjour à vous, je suis",
-    "body": "Je suis un developpeur web"
+    "preamble": "Hey there I am",
+    "iam": "I am a",
+    "webDevelopper": "developper web",
+    "mobileDevelopper": "developper mobile",
+    "designer": "designer",
+    "download": "Download CV",
+    "body": "I am a developper web"
   },
   "about": {
     "title": "À propos de moi",

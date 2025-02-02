@@ -8,6 +8,11 @@
   },
   "hero": {
     "preamble": "Hey there I am",
+    "iam": "I am a",
+    "webDevelopper": "web developper",
+    "mobileDevelopper": "mobile developper",
+    "designer": "designer",
+    "download": "Download CV",
     "body": "I am a developper web"
   },
   "about": {
