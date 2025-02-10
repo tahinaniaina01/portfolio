@@ -1,3 +1,4 @@
+import Footer from "@/src/components/pages/global/Footer";
 import Header from "@/src/components/pages/global/Header";
 import CanvasCursor from "@/src/components/utils/CanvasCursor";
 import PageTransition from "@/src/components/utils/PageTransition";
@@ -28,7 +29,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
+      <body className="w-[100vw] overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -40,6 +41,7 @@ export default async function LocaleLayout({
             <Header />
             <StairTransition />
             <PageTransition>{children}</PageTransition>
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

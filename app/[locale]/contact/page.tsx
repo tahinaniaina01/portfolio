@@ -1,5 +1,11 @@
+import Contacts from "@/src/components/pages/global/Contacts";
+
 function page() {
-  return <div className="w-full h-[300vh] mt-[72px] xl:mt-[88px]">Contact</div>;
+  return (
+    <main className="w-full mt-[72px] xl:mt-[88px]">
+      <Contacts />
+    </main>
+  );
 }
 
 export default page;

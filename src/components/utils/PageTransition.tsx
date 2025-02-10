@@ -15,7 +15,7 @@ function PageTransition({ children }: { children: ReactNode }) {
             opacity: 0,
             transition: { delay: 0.5, duration: 0.3, ease: "easeInOut" },
           }}
-          className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-40"
+          className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-[1000]"
         />
         {children}
       </div>

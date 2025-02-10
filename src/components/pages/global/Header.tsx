@@ -38,7 +38,7 @@ export default function Header() {
     },
   ];
 
-  console.log(pathname);
+  // console.log(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,13 +79,13 @@ export default function Header() {
   return (
     <header
       ref={ref}
-      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full z-30 ${
+      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full z-[9999] ${
         isScroll || isOpen
           ? "shadow-lg border-b-border border-b-2 bg-background"
           : "shadow-none border-none bg-transparent"
       }`}
     >
-      <div className="container flex justify-between items-center py-3 relative z-30">
+      <div className="container flex justify-between items-center py-3 relative z-[9999]">
         <div className="">
           <h1 className="font-bold text-xl">Tahina</h1>
         </div>

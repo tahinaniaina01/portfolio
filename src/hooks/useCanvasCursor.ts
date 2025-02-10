@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { useEffect } from "react";
 
 const useCanvasCursor = () => {
@@ -122,7 +120,7 @@ const useCanvasCursor = () => {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = "lighter";
       // ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",50%,50%,0.2)";
-      ctx.strokeStyle = "hsla(193,98%,74%,0.2)";
+      ctx.strokeStyle = "hsla(174,86%,56%,0.2)";
       ctx.lineWidth = 1;
       for (let e, t = 0; t < E.trails; t++) {
         (e = lines[t]).update();
@@ -139,10 +137,9 @@ const useCanvasCursor = () => {
   }
 
   let ctx,
-    f,
     e = 0,
     lines = [];
-  const pos = {},
+  const pos = {} as { x: number | undefined; y: number | undefined },
     E = {
       debug: true,
       friction: 0.5,
@@ -157,17 +154,19 @@ const useCanvasCursor = () => {
     this.vy = 0;
     this.vx = 0;
   }
-
+  // let f;
   const renderCanvas = function () {
-    ctx = document.getElementById("canvas").getContext("2d");
+    ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext(
+      "2d"
+    );
     ctx.running = true;
     ctx.frame = 1;
-    f = new n({
-      phase: Math.random() * 2 * Math.PI,
-      amplitude: 85,
-      frequency: 0.0015,
-      offset: 285,
-    });
+    // f = new n({
+    //   phase: Math.random() * 2 * Math.PI,
+    //   amplitude: 85,
+    //   frequency: 0.0015,
+    //   offset: 285,
+    // });
     document.addEventListener("mousemove", onMousemove);
     document.addEventListener("touchstart", onMousemove);
     document.body.addEventListener("orientationchange", resizeCanvas);

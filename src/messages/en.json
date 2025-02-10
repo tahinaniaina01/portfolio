@@ -8,10 +8,9 @@
   },
   "hero": {
     "preamble": "Hey there I am",
-    "iam": "I am a",
-    "webDevelopper": "web developper",
-    "mobileDevelopper": "mobile developper",
-    "designer": "designer",
+    "iam": "I am",
+    "developper": "a developper",
+    "designer": "a designer",
     "download": "Download CV",
     "body": "I am a developper web"
   },
@@ -35,5 +34,22 @@
       "age": "Age"
     },
     "button": "Download CV"
+  },
+  "skills": {
+    "design": "design",
+    "front": "front-end",
+    "back": "back-end",
+    "other": "other"
+  },
+  "projects": {},
+  "contacts": {
+    "title": "Let's work together",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet et voluptatum dolor? Quidem, quisquam!",
+    "name": "Name",
+    "firstname": "firstname",
+    "email": "mail",
+    "tel": "phone",
+    "message": "message",
+    "submit": "submit"
   }
 }

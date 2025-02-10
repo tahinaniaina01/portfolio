@@ -33,12 +33,12 @@ export default function AboutMe() {
   };
 
   return (
-    <section id="about" className="w-full my-16 px-6 md:px-12">
+    <section id="about" className="w-full my-16 px-4 md:px-8 lg:px-12">
       <motion.h1
         variants={variantScale}
         initial={"hidden"}
         whileInView={"visible"}
-        className="text-center text-6xl my-7 font-heading"
+        className="text-start md:text-center text-6xl my-7 font-heading"
       >
         {t("title")}
       </motion.h1>
@@ -89,7 +89,7 @@ export default function AboutMe() {
             variants={variantScale}
             initial={"hidden"}
             whileInView={"visible"}
-            className="text-sm lg:text-lg lg:text-start text-center"
+            className="text-sm lg:text-lg text-start"
           >
             {t("description")}
           </motion.p>
@@ -143,7 +143,7 @@ export default function AboutMe() {
                 className="my-3 flex flex-col items-end"
               >
                 <h2 className="text-xl font-bold">{t("infoName.age")}</h2>
-                <p className="text-sm lg:text-lg">19</p>
+                <p className="text-sm lg:text-lg">20</p>
               </motion.div>
             </div>
             <Button className="bg-primary rounded-full px-7 py-5 my-5 text-xl">

@@ -1,20 +1,22 @@
-import { Facebook, Instagram, Linkedin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { BiLogoInstagram } from "react-icons/bi";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
 import { Button } from "../../ui/button";
 import { FlipWords } from "../../ui/flip-words";
 
 function Hero() {
   const t = useTranslations("hero");
   const socialsNetworks = [
-    <Linkedin key={"linkedin"} />,
-    <Phone key={"wattsapp"} />,
-    <Instagram key={"instagram"} />,
-    <Facebook key={"facebook"} />,
+    <FaLinkedin key={"linkedin"} />,
+    <IoLogoWhatsapp key={"wattsapp"} />,
+    <BiLogoInstagram key={"instagram"} />,
+    <FaFacebook key={"facebook"} />,
   ];
-  const words = [t("designer"), t("webDevelopper"), t("mobileDevelopper")];
+  const words = [t("designer"), t("developper")];
 
   return (
-    <section className="w-full">
+    <section className="w-full px-4 md:px-8 lg:px-12">
       <div className="container mx-auto py-12 flex flex-col-reverse md:flex-row gap-12">
         <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-3 items-center md:items-start">
           <p className="text-base md:text-lg xl:text-xl flex items-center gap-3 my-2">
@@ -38,7 +40,7 @@ function Hero() {
                 return (
                   <Button
                     key={i}
-                    className="text-ring hover:text-ring/80"
+                    className="text-ring hover:text-background hover:bg-ring"
                     variant={"outline"}
                     size={"icon"}
                   >
