@@ -85,9 +85,9 @@ export default function Header() {
           : "shadow-none border-none bg-transparent"
       }`}
     >
-      <div className="container flex justify-between items-center py-3 relative z-[9999]">
+      <div className="container mx-auto flex justify-between items-center py-3 relative z-[9999]">
         <div className="">
-          <h1 className="font-bold text-xl">Tahina</h1>
+          <h1 className="font-heading font-bold text-xl">Tahina</h1>
         </div>
         <NavBar className="hidden md:flex" />
         <div className="hidden md:flex items-center gap-x-3">
