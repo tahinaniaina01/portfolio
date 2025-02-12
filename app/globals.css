@@ -8,12 +8,13 @@ body {
 
 @layer base {
   :root {
-    --background: 0, 0%, 100%;
+    --background: 76 100% 95%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
+
     --primary: 174 86% 56%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
@@ -74,7 +75,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* color: hsl(171, 42%, 91%); */
+    /* color: hsl(76, 100%, 95%); */
   }
 }
 @layer utilities {

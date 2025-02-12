@@ -2,31 +2,54 @@
   "header": {
     "home": "Accueil",
     "services": "services",
-    "resume": "resumé",
-    "works": "travailles",
+    "resume": "CV",
+    "works": "projets",
     "contact": "contact"
   },
   "hero": {
-    "preamble": "Salut vous, je suis",
+    "preamble": "Salut, je suis",
     "iam": "Je suis",
-    "developper": "un developpeur",
+    "developper": "un développeur",
     "designer": "un designer",
-    "download": "Download CV",
-    "body": "I am a developper web"
+    "download": "Télécharger CV",
+    "body": "Je suis un développeur web"
+  },
+  "stats": {
+    "xp": "années d'expérience",
+    "projects": "projets réalisés",
+    "commit": "commits de code",
+    "tech": "technologies maîtrisées"
   },
   "about": {
     "title": "À propos de moi",
-    "preamble": "Je suis un developpeur web",
-    "description": "Bonjour et bienvenue dans ma section \"À propos de moi\". Je suis Tahinaniaina, un passionné de de l’informatique et surtout le domaine de la développement web, avec une solide expérience dans le développement web, le design graphique, la gestion de projet, etc.Au cours de ma carrière, j'ai eu l'opportunité de travailler sur une variété de projets qui m'ont permis de développer une gamme de compétences allant de la conception à la mise en œuvre, en passant par  le test et l'optimisation. J'ai une véritable passion pour les informatiques et téchnologie, et je suis toujours à la recherche de nouvelles opportunités pour apprendre et m'améliorer.",
-    "infoTitle": "Information presonnelle",
+    "preamble": "Je suis un développeur web",
+    "description": "Bonjour et bienvenue dans ma section \"À propos\". Je suis Tahinaniaina, passionné par l'informatique et particulièrement le domaine du développement web, avec une solide expérience en développement web, design graphique, gestion de projet, etc. Au cours de ma carrière, j'ai eu l'opportunité de travailler sur divers projets qui m'ont permis de développer un éventail de compétences allant de la conception à l'implémentation, en passant par les tests et l'optimisation. J'ai une réelle passion pour l'informatique et la technologie, et je suis toujours à la recherche de nouvelles opportunités pour apprendre et m'améliorer.",
+    "infoTitle": "Informations Personnelles",
     "infoName": {
       "name": "Nom",
-      "location": "Adresse",
+      "location": "Localisation",
       "phone": "Téléphone",
-      "education": "Education",
-      "email": "Mail",
-      "age": "Age"
+      "education": "Formation",
+      "email": "Email",
+      "age": "Âge"
     },
-    "button": "Télécharger mon CV"
+    "button": "Télécharger CV"
+  },
+  "skills": {
+    "design": "design",
+    "front": "front-end",
+    "back": "back-end",
+    "other": "autre"
+  },
+  "projects": {},
+  "contacts": {
+    "title": "Travaillons ensemble",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet et voluptatum dolor? Quidem, quisquam!",
+    "name": "Nom",
+    "firstname": "prénom",
+    "email": "email",
+    "tel": "téléphone",
+    "message": "message",
+    "submit": "envoyer"
   }
 }
