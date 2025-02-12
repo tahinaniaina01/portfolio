@@ -1,19 +1,31 @@
+/* @import url("https://fonts.googleapis.com/css?family=Chewy:700|Shippori%20Antique%20B1:400"); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: chewy;
+  src: url("/fonts/Chewy/Chewy-Regular.ttf");
 }
+
+@font-face {
+  font-family: Shippori;
+  src: url("/fonts/Shippori_Antique_B1/ShipporiAntiqueB1-Regular.ttf");
+}
+
+/* body {
+  font-family: Arial, Helvetica, sans-serif;
+} */
 
 @layer base {
   :root {
     --background: 0, 0%, 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 100 6% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 100 6% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 100 6% 10%;
     --primary: 174 86% 56%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
@@ -74,9 +86,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: Shippori;
     /* color: hsl(171, 42%, 91%); */
   }
 }
+
 @layer utilities {
   .h1 {
     @apply text-[34px] leading-[42px] font-bold;
@@ -93,6 +107,14 @@ body {
   .h5 {
     @apply text-[16px] leading-[24px] font-semibold;
   }
+}
+
+.font-heading {
+  font-family: chewy;
+}
+
+.font-body {
+  font-family: Shippori;
 }
 
 .transition {

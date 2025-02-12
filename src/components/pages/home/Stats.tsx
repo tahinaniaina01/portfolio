@@ -30,7 +30,7 @@ function Stats() {
         {stats.map((stat, index) => {
           return (
             <div key={index} className="flex items-center flex-col">
-              <p className="text-5xl lg:text-[72px] font-bold">
+              <p className="font-heading text-5xl lg:text-[72px] font-bold">
                 +
                 <CountUp end={stat.stats} duration={4} delay={1} />
               </p>
