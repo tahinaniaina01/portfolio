@@ -16,7 +16,7 @@ function Hero() {
   const words = [t("designer"), t("developper")];
 
   return (
-    <section className="w-full px-4 md:px-8 lg:px-12">
+    <section className="w-full px-6 lg:px-12">
       <div className="container mx-auto py-12 flex flex-col-reverse md:flex-row gap-12">
         <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-3 items-center md:items-start">
           <p className="text-base md:text-lg xl:text-xl flex items-center gap-3 my-2">
