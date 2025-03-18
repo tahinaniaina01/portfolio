@@ -9,7 +9,7 @@ function StairTransition() {
   return (
     <AnimatePresence mode="wait">
       <div key={pathname}>
-        <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-[9999] flex">
+        <div className="h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-[99999] flex">
           <Stairs />
         </div>
       </div>

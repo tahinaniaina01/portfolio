@@ -9,17 +9,21 @@ function PageTransition({ children }: { children: ReactNode }) {
 
   return (
     <AnimatePresence>
-      <main key={pathname}>
+      <motion.main
+        key={pathname}
+        exit={{ display: "none" }}
+        transition={{ duration: 0.3 }}
+      >
         <motion.div
           initial={{ opacity: 1 }}
           animate={{
             opacity: 0,
-            transition: { delay: 0.5, duration: 0.3, ease: "easeInOut" },
+            transition: { delay: 0.5, duration: 1, ease: "easeInOut" },
           }}
           className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-[1000]"
         />
         {children}
-      </main>
+      </motion.main>
     </AnimatePresence>
   );
 }

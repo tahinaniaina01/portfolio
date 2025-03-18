@@ -28,8 +28,8 @@ function Contacts() {
 
   return (
     <section className="px-4 mt-12 md:px-8 lg:px-12">
-      <div className="container mx-auto flex flex-col md:flex-row gap-7">
-        <div className="w-full flex flex-col items-start md:items-center gap-7 md:w-1/2">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-7">
+        <div className="w-full flex flex-col items-start md:items-center gap-7 lg:w-1/2">
           <div>
             <h1 className="h1">Contacts</h1>
             <p>
@@ -56,7 +56,7 @@ function Contacts() {
             })}
           </div>
         </div>
-        <div className="w-full md:w-1/2 md:pl-5">
+        <div className="w-full lg:w-1/2 lg:pl-5">
           <div className="bg-muted rounded-xl md:rounded-2xl px-3 md:px-5 xl:px-7 py-2 md:py-4 xl:mb-6 space-y-5">
             <div className="space-y-3">
               <h1 className="h1">{t("title")}</h1>

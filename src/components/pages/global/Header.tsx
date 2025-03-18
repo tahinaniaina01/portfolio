@@ -91,8 +91,8 @@ export default function Header() {
         <div className="">
           <h1 className="font-heading font-bold text-xl">Tahina</h1>
         </div>
-        <NavBar className="hidden md:flex" />
-        <div className="hidden md:flex items-center gap-x-3">
+        <NavBar className="hidden lg:flex" />
+        <div className="hidden lg:flex items-center gap-x-3">
           <ModeToggle />
           <ChangeLangage />
           <Button>Work with me</Button>
