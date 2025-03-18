@@ -5,6 +5,7 @@ import { Link, usePathname } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import ChangeLangage from "../../utils/ChangeLangage";
+import HorizontaleScrollBar from "../../utils/horizontaleScrollBar";
 import { ModeToggle } from "../../utils/mode-tooggle";
 
 export default function Header() {
@@ -81,10 +82,11 @@ export default function Header() {
       ref={ref}
       className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full z-[9999] ${
         isScroll || isOpen
-          ? "shadow-lg border-b-border border-b-2 bg-background"
+          ? "shadow-lg border-b-accent border-b-[3px] bg-background"
           : "shadow-none border-none bg-transparent"
       }`}
     >
+      <HorizontaleScrollBar />
       <div className="container mx-auto flex justify-between items-center py-3 relative z-[9999]">
         <div className="">
           <h1 className="font-heading font-bold text-xl">Tahina</h1>

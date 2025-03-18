@@ -17,7 +17,7 @@ function Hero() {
 
   return (
     <section className="w-full px-6 lg:px-12">
-      <div className="container mx-auto lg:h-[678px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-12">
+      <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-12">
         <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-3 items-center md:items-start">
           <p className="text-base md:text-lg xl:text-xl flex items-center gap-3 2xl:leading-relaxed my-2">
             {t("preamble")} <span className="bg-ring w-0 md:w-12 h-1"></span>

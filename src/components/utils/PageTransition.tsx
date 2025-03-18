@@ -6,9 +6,10 @@ import { ReactNode } from "react";
 
 function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+
   return (
     <AnimatePresence>
-      <div key={pathname}>
+      <main key={pathname}>
         <motion.div
           initial={{ opacity: 1 }}
           animate={{
@@ -18,7 +19,7 @@ function PageTransition({ children }: { children: ReactNode }) {
           className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-[1000]"
         />
         {children}
-      </div>
+      </main>
     </AnimatePresence>
   );
 }
