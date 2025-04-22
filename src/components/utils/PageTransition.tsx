@@ -14,14 +14,6 @@ function PageTransition({ children }: { children: ReactNode }) {
         exit={{ display: "none" }}
         transition={{ duration: 0.3 }}
       >
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: 0,
-            transition: { delay: 0.5, duration: 1, ease: "easeInOut" },
-          }}
-          className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-[1000]"
-        />
         {children}
       </motion.main>
     </AnimatePresence>

@@ -1,8 +1,7 @@
 import Footer from "@/src/components/pages/global/Footer";
 import Header from "@/src/components/pages/global/Header";
 import CanvasCursor from "@/src/components/utils/CanvasCursor";
-import PageTransition from "@/src/components/utils/PageTransition";
-import StairTransition from "@/src/components/utils/StairTransition";
+import Stairs from "@/src/components/utils/Stairs";
 import { routing } from "@/src/i18n/routing";
 import { ThemeProvider } from "@/src/providers/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
@@ -27,9 +26,13 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   // console.log(`locales: ${locales}, locale : ${locale}`);
 
+  // // console.log("wating...");
+  // // await new Promise((resolve) => setTimeout(resolve, 7000));
+  // console.log("ok");
+
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="w-[100vw] overflow-x-hidden">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,10 +40,11 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
+            <Stairs />
             <CanvasCursor />
             <Header />
-            <StairTransition />
-            <PageTransition>{children}</PageTransition>
+            {/* <StairTransition /> */}
+            <main>{children}</main>
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>

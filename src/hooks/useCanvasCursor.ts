@@ -155,7 +155,7 @@ const useCanvasCursor = () => {
     this.vx = 0;
   }
   // let f;
-  const renderCanvas = function () {
+  const renderCanvas = () => {
     ctx = (document.getElementById("canvas") as HTMLCanvasElement).getContext(
       "2d"
     );
@@ -203,6 +203,7 @@ const useCanvasCursor = () => {
       });
     };
   }, []);
+  // }, [ctx,onMousemove,render, renderCanvas,resizeCanvas]);
 };
 
 export default useCanvasCursor;

@@ -1,9 +1,11 @@
 "use client";
 
+import { variantScale } from "@/src/utils/animationVariants";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 type Testimonial = {
   quote: string;
@@ -19,10 +21,11 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const t = useTranslations("home.projects");
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -37,7 +40,7 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, handleNext]);
 
   // const randomRotateY = () => {
   //   return Math.floor(Math.random() * 21) - 10;
@@ -45,16 +48,24 @@ export const AnimatedTestimonials = ({
 
   const rotations = useMemo(() => {
     return testimonials.map(() => Math.floor(Math.random() * 21) - 10);
-  }, [testimonials.length]);
+  }, [testimonials]);
   return (
     <section className="px-4 md:px-8 lg:px-12">
+      <motion.h1
+        variants={variantScale()}
+        initial={"hidden"}
+        whileInView={"visible"}
+        className="text-start md:text-center text-6xl my-7 xl:mt-16 xl:mb-12 font-heading"
+      >
+        {t("title")}
+      </motion.h1>
       <div
         suppressHydrationWarning={true}
-        className="container mx-auto antialiased font-sans py-20"
+        className="container mx-auto antialiased font-sans pb-20"
       >
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
           <div>
-            <div className="relative h-full  min-h-[360px] w-full">
+            <div className="relative h-full min-h-[200px] md:min-h-[360px] w-full">
               <AnimatePresence>
                 {testimonials.map((testimonial, index) => (
                   <motion.div
@@ -65,7 +76,7 @@ export const AnimatedTestimonials = ({
                       z: -100,
                       rotate: rotations[index],
                     }}
-                    animate={{
+                    whileInView={{
                       opacity: isActive(index) ? 1 : 0.7,
                       scale: isActive(index) ? 1 : 0.95,
                       z: isActive(index) ? 0 : -100,
@@ -107,7 +118,7 @@ export const AnimatedTestimonials = ({
                 y: 20,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 y: 0,
                 opacity: 1,
               }}
@@ -135,7 +146,7 @@ export const AnimatedTestimonials = ({
                       opacity: 0,
                       y: 5,
                     }}
-                    animate={{
+                    whileInView={{
                       filter: "blur(0px)",
                       opacity: 1,
                       y: 0,
@@ -153,18 +164,46 @@ export const AnimatedTestimonials = ({
               </motion.p>
             </motion.div>
             <div className="flex gap-3 md:gap-5 xl:gap-7 pt-12 md:pt-0">
-              <button
+              <motion.button
+                initial={{
+                  rotate: "90deg",
+                  scale: 0.5,
+                  translateX: 50,
+                }}
+                whileInView={{
+                  rotate: "0deg",
+                  scale: 1,
+                  translateX: 0,
+                  transition: {
+                    duration: 0.5,
+                    type: "spring",
+                  },
+                }}
                 onClick={handlePrev}
                 className="h-10 w-10 lg:h-14 lg:w-14 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
               >
                 <IconArrowLeft className="h-7 w-7 lg:h-10 lg:w-10 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                initial={{
+                  rotate: "-90deg",
+                  scale: 0.5,
+                  translateX: -50,
+                }}
+                whileInView={{
+                  rotate: "0deg",
+                  scale: 1,
+                  translateX: 0,
+                  transition: {
+                    duration: 0.5,
+                    type: "spring",
+                  },
+                }}
                 onClick={handleNext}
                 className="h-10 w-10 lg:h-14 lg:w-14 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
               >
                 <IconArrowRight className="h-7 w-7 lg:h-10 lg:w-10 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>

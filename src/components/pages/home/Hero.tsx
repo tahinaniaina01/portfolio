@@ -1,3 +1,9 @@
+import {
+  parentsVariants,
+  variantScale,
+  variantTranslate,
+} from "@/src/utils/animationVariants";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { BiLogoInstagram } from "react-icons/bi";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
@@ -6,7 +12,7 @@ import { Button } from "../../ui/button";
 import { FlipWords } from "../../ui/flip-words";
 
 function Hero() {
-  const t = useTranslations("hero");
+  const t = useTranslations("home.hero");
   const socialsNetworks = [
     <FaLinkedin key={"linkedin"} />,
     <IoLogoWhatsapp key={"wattsapp"} />,
@@ -18,39 +24,81 @@ function Hero() {
   return (
     <section className="w-full px-6 lg:px-12">
       <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-12">
-        <div className="w-full md:w-1/2 flex flex-col gap-2 md:gap-3 items-center md:items-start">
-          <p className="text-base md:text-lg xl:text-xl flex items-center gap-3 2xl:leading-relaxed my-2">
+        <motion.div
+          variants={parentsVariants()}
+          initial={"hidden"}
+          whileInView={"visible"}
+          className="w-full md:w-1/2 flex flex-col gap-2 md:gap-3 items-center md:items-start"
+        >
+          <motion.p
+            variants={variantTranslate({ x: -100 })}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="text-base md:text-lg xl:text-xl flex items-center gap-3 2xl:leading-relaxed my-2"
+          >
             {t("preamble")} <span className="bg-ring w-0 md:w-12 h-1"></span>
-          </p>
-          <h1 className="font-heading text-5xl lg:text-[72px] 2xl:text-[80px] font-extrabold text-center md:text-start">
+          </motion.p>
+          <motion.h1
+            variants={variantTranslate({ x: -100, delay: 0.1 })}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="font-heading text-5xl lg:text-[72px] 2xl:text-[80px] font-extrabold text-center md:text-start"
+          >
             RAKOTOSOA
-          </h1>
-          <h2 className="font-heading text-5xl lg:text-[72px] 2xl:text-[80px] font-extrabold text-center md:text-start 2xl:leading-relaxed">
+          </motion.h1>
+          <motion.h2
+            variants={variantTranslate({ x: -100, delay: 0.2 })}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="font-heading text-5xl lg:text-[72px] 2xl:text-[80px] font-extrabold text-center md:text-start 2xl:leading-relaxed"
+          >
             <span className="text-ring">Tahinaniaina</span> Noël
-          </h2>
-          <h4 className="text-2xl lg:text-4xl font-medium my-3 md:my-5">
+          </motion.h2>
+          <motion.h4
+            variants={variantTranslate({ x: -100, delay: 0.3 })}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="text-2xl lg:text-4xl font-medium my-3 md:my-5"
+          >
             {t("iam")} <FlipWords words={words} />
-          </h4>
-          <div className="font-body flex flex-col md:flex-row gap-5 md:gap-3 my-3">
-            <Button size={"lg"} className="w-full">
-              {t("download")}
-            </Button>
+          </motion.h4>
+          <motion.div
+            variants={parentsVariants()}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="font-body flex flex-col md:flex-row gap-5 md:gap-3 my-3"
+          >
+            <motion.span
+              variants={variantTranslate({ x: -100, delay: 0.4 })}
+              initial={"hidden"}
+              whileInView={"visible"}
+            >
+              <Button size={"lg"} className="w-full">
+                {t("download")}
+              </Button>
+            </motion.span>
             <div className="flex gap-2 md:gap-3">
               {socialsNetworks.map((icon, i) => {
                 return (
-                  <Button
+                  <motion.span
                     key={i}
-                    className="font-body text-ring hover:text-background hover:bg-ring"
-                    variant={"outline"}
-                    size={"icon"}
+                    variants={variantScale(0.5 + 0.05 * i)}
+                    initial={"hidden"}
+                    whileInView={"visible"}
                   >
-                    {icon}
-                  </Button>
+                    <Button
+                      className="font-body text-ring hover:text-background hover:bg-ring"
+                      variant={"outline"}
+                      size={"icon"}
+                    >
+                      {icon}
+                    </Button>
+                  </motion.span>
                 );
               })}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <div className="w-full md:w-1/2 flex items-center justify-center">
           <div className="w-[200px] md:w-[350px] aspect-square bg-ring rounded-full"></div>
         </div>

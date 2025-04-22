@@ -6,50 +6,62 @@
     "works": "works",
     "contact": "contact"
   },
-  "hero": {
-    "preamble": "Hey there I am",
-    "iam": "I am",
-    "developper": "a developper",
-    "designer": "a designer",
-    "download": "Download CV",
-    "body": "I am a developper web"
-  },
-  "stats": {
-    "xp": "year of experience",
-    "projects": "projects completed",
-    "commit": "code commit",
-    "tech": "technology mastered"
-  },
-  "about": {
-    "title": "About me",
-    "preamble": "I am a web developper",
-    "description": "Hello and welcome to my \"About Me\" section. I am Tahinaniaina, passionate about IT and especially the field of web development, with solid experience in web development, graphic design, project management, etc. During my career, I have had the opportunity to work on a variety of projects that have enabled the development of a range of skills from design to implementation, including testing and optimization. I have a real passion for computers and technology, and I'm always looking for new opportunities to learn and improve.",
-    "infoTitle": "Personal Information",
-    "infoName": {
-      "name": "Name",
-      "location": "Location",
-      "phone": "Phone",
-      "education": "Education",
-      "email": "Email",
-      "age": "Age"
+  "home": {
+    "hero": {
+      "preamble": "Hey there I am",
+      "iam": "I am",
+      "developper": "a developper",
+      "designer": "a designer",
+      "download": "Download CV",
+      "body": "I am a developper web"
     },
-    "button": "Download CV"
-  },
-  "skills": {
-    "design": "design",
-    "front": "front-end",
-    "back": "back-end",
-    "other": "other"
-  },
-  "projects": {},
-  "contacts": {
-    "title": "Let's work together",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet et voluptatum dolor? Quidem, quisquam!",
-    "name": "Name",
-    "firstname": "firstname",
-    "email": "mail",
-    "tel": "phone",
-    "message": "message",
-    "submit": "submit"
+    "stats": {
+      "xp": "year of experience",
+      "projects": "projects completed",
+      "commit": "code commit",
+      "tech": "technology mastered"
+    },
+    "about": {
+      "title": "About me",
+      "preamble": "I am a web developper",
+      "description": "Hello and welcome to my \"About Me\" section. I am Tahinaniaina, passionate about IT and especially the field of web development, with solid experience in web development, graphic design, project management, etc. During my career, I have had the opportunity to work on a variety of projects that have enabled the development of a range of skills from design to implementation, including testing and optimization. I have a real passion for computers and technology, and I'm always looking for new opportunities to learn and improve.",
+      "infoTitle": "Personal Information",
+      "infoName": {
+        "name": "Name",
+        "location": "Location",
+        "phone": "Phone",
+        "education": "Education",
+        "email": "Email",
+        "age": "Age"
+      },
+      "button": "Download CV"
+    },
+    "skills": {
+      "title": "skills",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum nostrum ea perspiciatis eum sint excepturi consectetur, placeat debitis deleniti cum neque illum eos nesciunt cumque.",
+      "design": "design",
+      "front": "front-end",
+      "back": "back-end",
+      "other": "other"
+    },
+    "projects": {
+      "title": "works"
+    },
+    "contacts": {
+      "socialsNetworks": {
+        "title": "Socials Networks",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, cupiditate laborum rem odit cum provident."
+      },
+      "form": {
+        "title": "Let's work together",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet et voluptatum dolor? Quidem, quisquam!",
+        "name": "Name",
+        "firstname": "firstname",
+        "email": "mail",
+        "tel": "phone",
+        "message": "message",
+        "submit": "submit"
+      }
+    }
   }
 }

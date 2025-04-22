@@ -1,5 +1,7 @@
 "use client";
 
+import { variantBlur, variantScale } from "@/src/utils/animationVariants";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
   FaAngular,
@@ -127,7 +129,7 @@ const skills = [
 ];
 
 function Skills() {
-  const t = useTranslations("skills");
+  const t = useTranslations("home.skills");
 
   return (
     <section className="px-4 md:px-8 lg:px-12">
@@ -137,22 +139,47 @@ function Skills() {
           defaultValue="front"
         >
           <TabsList className="flex flex-col items-start gap-3 md:gap-5 w-full md:w-1/2 bg-transparent text-start h-auto">
-            <h1 className="h1 text-start text-foreground">Skills</h1>
-            <p className="mb-3 text-foreground">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
-              nostrum ea perspiciatis eum sint excepturi consectetur, placeat
-              debitis deleniti cum neque illum eos nesciunt cumque.
-            </p>
+            <motion.h1
+              variants={variantScale()}
+              initial={"hidden"}
+              whileInView={"visible"}
+              className="h1 text-start text-foreground"
+            >
+              {t("title")}
+            </motion.h1>
+            <motion.p className="mb-3 text-foreground">
+              {t("description")
+                .split(" ")
+                .map((word, index) => (
+                  <motion.span
+                    key={index}
+                    variants={variantBlur(0.01 * index)}
+                    initial={"hidden"}
+                    whileInView={"visible"}
+                    className="inline-block"
+                  >
+                    {word}&nbsp;
+                  </motion.span>
+                ))}
+            </motion.p>
             {skills.map((skill, index) => {
               const { value } = skill;
               return (
-                <TabsTrigger
+                <motion.div
+                  variants={variantScale(0.2 + 0.1 * index, 0.5)}
+                  initial={"hidden"}
+                  whileInView={"visible"}
                   key={index}
-                  className="w-full text-start h-10 xl:h-12 px-8 data-[state=active]:text-primary-foreground border-border border text-ring md:text-xl font-semibold"
-                  value={value}
+                  className="w-full"
                 >
-                  {t(value)}
-                </TabsTrigger>
+                  <TabsTrigger
+                    key={index}
+                    className="w-full rounded-full text-start h-10 xl:h-12 px-8 data-[state=active]:text-primary-foreground border-border border text-ring md:text-xl font-semibold"
+                    value={value}
+                  >
+                    {t(value)}
+                  </TabsTrigger>
+                </motion.div>
               );
             })}
           </TabsList>
@@ -168,18 +195,40 @@ function Skills() {
                   {tooltips.map((tooltip) => {
                     const { label, icon } = tooltip;
                     return (
-                      <TooltipProvider key={label}>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div className="w-full flex items-center justify-center h-full bg-primary text-primary-foreground rounded-2xl aspect-square">
-                              {icon}
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{label}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      <AnimatePresence key={label}>
+                        <motion.div
+                          initial={{ scale: 0.75, opacity: 0 }}
+                          whileInView={{
+                            scale: 1,
+                            opacity: 1,
+                            transition: {
+                              duration: 0.3,
+                              ease: "easeOut",
+                            },
+                          }}
+                          exit={{
+                            scale: 1.5,
+                            opacity: 0,
+                            transition: {
+                              duration: 0.3,
+                              ease: "easeOut",
+                            },
+                          }}
+                        >
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <div className="w-full flex items-center justify-center h-full bg-primary text-primary-foreground rounded-2xl aspect-square">
+                                  {icon}
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{label}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </motion.div>
+                      </AnimatePresence>
                     );
                   })}
                 </div>

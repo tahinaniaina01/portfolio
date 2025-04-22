@@ -8,23 +8,23 @@ export function Projects() {
   const testimonials = [
     {
       quote:
-        "L'attention au détail et les fonctionnalités innovantes ont complètement transformé notre flux de travail. C'est exactement ce que nous avons cherché.",
-      name: "Sarah Chen",
-      designation: "Responsable produit chez TechFlow",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempora ab eveniet numquam et vel a necessitatibus esse itaque ullam?",
+      name: "Hotel website 1",
+      designation: "Reactjs + Tailwindcss + Typescript",
       src: image,
     },
     {
       quote:
-        "La mise en œuvre a été sans heurt et les résultats ont dépassé nos attentes. La flexibilité de la plateforme est remarquable.",
-      name: "Michael Rodriguez",
-      designation: "Directeur technique chez InnovateSphere",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempora ab eveniet numquam et vel a necessitatibus esse itaque ullam?",
+      name: "Hotel website 2",
+      designation: "Reactjs + Tailwindcss + Typescript",
       src: image,
     },
     {
       quote:
-        "Cette solution a considérablement amélioré la productivité de notre équipe. L'interface intuitive rend les tâches complexes simples.",
-      name: "Emily Watson",
-      designation: "Directrice des opérations chez CloudScale",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempora ab eveniet numquam et vel a necessitatibus esse itaque ullam?",
+      name: "Hotel website 3",
+      designation: "Reactjs + Tailwindcss + Typescript",
       src: image,
     },
   ];
