@@ -63,5 +63,27 @@
         "submit": "submit"
       }
     }
+  },
+  "services": {
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "Creating a website means telling a story—yours. Through thoughtful design and custom development, I bring your project to life so it touches, inspires, and leaves a lasting impression."
+    },
+    "graphicDesign": {
+      "title": "Graphic Design",
+      "description": "Giving visual life to your ideas is what drives me. Every color, shape, and detail is crafted to captivate, evoke emotion, and elevate your identity."
+    },
+    "WebScrapping": {
+      "title": "Web Scraping",
+      "description": "Information is everywhere. With web scraping, I extract the data that matters, providing you with smart, automated tools tailored to your strategic needs."
+    },
+    "LogoDesigner": {
+      "title": "Logo Design",
+      "description": "A logo is more than just a symbol—it’s a first impression, a reflection of your essence. I design meaningful, unique logos that truly represent who you are."
+    },
+    "mobileDevelopment": {
+      "title": "Mobile Development",
+      "description": "The world is mobile—your project should be too. I build smooth, intuitive apps designed to offer a seamless experience anytime, anywhere."
+    }
   }
 }

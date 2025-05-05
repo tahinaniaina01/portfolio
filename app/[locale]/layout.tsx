@@ -1,5 +1,6 @@
 import Footer from "@/src/components/pages/global/Footer";
 import Header from "@/src/components/pages/global/Header";
+import BubbleCursor from "@/src/components/utils/bulbeCursor";
 import CanvasCursor from "@/src/components/utils/CanvasCursor";
 import Stairs from "@/src/components/utils/Stairs";
 import { routing } from "@/src/i18n/routing";
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <Stairs />
             <CanvasCursor />
+            <BubbleCursor />
             <Header />
             {/* <StairTransition /> */}
             <main>{children}</main>

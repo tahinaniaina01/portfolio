@@ -84,3 +84,23 @@ export const variantBlur = (delay = 0) => {
     },
   };
 };
+
+export const variantImage = (delay = 0) => {
+  return {
+    hidden: {
+      filter: "blur(50px)",
+      opacity: 0,
+      scale: 1.25,
+    },
+    visible: {
+      filter: "blur(0px)",
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+        delay: delay,
+      },
+    },
+  };
+};

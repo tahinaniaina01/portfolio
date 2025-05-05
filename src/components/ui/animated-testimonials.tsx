@@ -63,7 +63,7 @@ export const AnimatedTestimonials = ({
         suppressHydrationWarning={true}
         className="container mx-auto antialiased font-sans pb-20"
       >
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-20">
           <div>
             <div className="relative h-full min-h-[200px] md:min-h-[360px] w-full">
               <AnimatePresence>
@@ -163,7 +163,7 @@ export const AnimatedTestimonials = ({
                 ))}
               </motion.p>
             </motion.div>
-            <div className="flex gap-3 md:gap-5 xl:gap-7 pt-12 md:pt-0">
+            <div className="flex gap-3 md:gap-5 xl:gap-7 xl:pt-12 md:pt-0">
               <motion.button
                 initial={{
                   rotate: "90deg",

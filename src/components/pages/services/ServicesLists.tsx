@@ -1,55 +1,72 @@
 "use client";
 
+import webDevelopment from "@/src/assets/service_webDevelopment.png";
 import {
   variantBlur,
+  variantImage,
   variantScale,
   variantTranslate,
 } from "@/src/utils/animationVariants";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const ServicesLists = () => {
+  const t = useTranslations("services");
   const services = [
     {
-      title: "Web developper",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, suscipit? Perspiciatis qui unde quasi quas accusantium tempore?",
+      title: t("webDevelopment.title"),
+      description: t("webDevelopment.description"),
+      img: webDevelopment,
     },
     {
-      title: "UI/UX Designer",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, suscipit? Perspiciatis qui unde quasi quas accusantium tempore?",
+      title: t("graphicDesign.title"),
+      description: t("graphicDesign.description"),
+      img: webDevelopment,
     },
     {
-      title: "Web scraping",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, suscipit? Perspiciatis qui unde quasi quas accusantium tempore?",
+      title: t("WebScrapping.title"),
+      description: t("WebScrapping.description"),
+      img: webDevelopment,
     },
     {
-      title: "Logo Designer",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, suscipit? Perspiciatis qui unde quasi quas accusantium tempore?",
+      title: t("LogoDesigner.title"),
+      description: t("LogoDesigner.description"),
+      img: webDevelopment,
     },
     {
-      title: "Mobile development",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, suscipit? Perspiciatis qui unde quasi quas accusantium tempore?",
+      title: t("mobileDevelopment.title"),
+      description: t("mobileDevelopment.description"),
+      img: webDevelopment,
     },
   ];
+
   return (
     <section className="my-16 px-4 md:px-8 lg:px-12">
-      <div className="container mx-auto">
+      <div className="container mx-auto space-y-9 md:space-y-0">
         {services.map((service, index) => {
-          const { title, description } = service;
+          const { title, description, img } = service;
           return (
             <div className="grid grid-cols-1 lg:grid-cols-2" key={index}>
-              <div className="bg-primary min-h-40"></div>
+              <motion.div
+                variants={variantImage()}
+                initial={"hidden"}
+                whileInView={"visible"}
+                className="img-background overflow-hidden relative min-h-[250px] md:min-h-[400px] flex items-center justify-center rounded-xl lg:rounded-none"
+              >
+                <Image
+                  src={img}
+                  alt={title}
+                  className="w-full h-auto absolute"
+                />
+              </motion.div>
               <div
                 className={`w-full group py-3 ${
                   index % 2
-                    ? "md:order-first md:pr-5 xl:pr-7"
+                    ? "lg:order-first md:pr-5 xl:pr-7"
                     : "md:pl-5 xl:pl-7"
-                } md:py-5 xl:py-7 flex flex-col gap-3 lg:gap-5 xl:gap-7`}
+                } md:py-9 xl:py-16 flex flex-col gap-3 lg:gap-5 xl:gap-7`}
               >
                 <div className="w-full flex items-center justify-between pr-5">
                   <motion.span

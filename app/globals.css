@@ -82,8 +82,11 @@
   * {
     @apply border-border;
   }
+  html {
+    overflow-x: hidden;
+  }
   body {
-    @apply bg-background text-foreground max-w-[100vw] max-h-[100vh] overflow-x-hidden;
+    @apply bg-background text-foreground max-w-[100vw] min-h-[100vh] relative overflow-x-hidden;
     font-family: Shippori;
     /* color: #2eefdc; */
   }
@@ -164,4 +167,11 @@
     /* clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
   }
+  .img-background {
+    background: linear-gradient(to right, #aef3dd, #e3fde3);
+  }
 }
+
+/* p {
+  color: #2eefdc;
+} */

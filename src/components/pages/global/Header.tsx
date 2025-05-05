@@ -80,7 +80,7 @@ export default function Header() {
   return (
     <motion.header
       ref={ref}
-      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full z-[1000] ${
+      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full max-w-[100vw] z-[1000] ${
         isScroll || isOpen
           ? "shadow-lg border-b-accent border-b-[3px] bg-background"
           : "shadow-none border-none bg-transparent"

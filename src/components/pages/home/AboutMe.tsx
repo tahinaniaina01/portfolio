@@ -1,13 +1,16 @@
 "use client";
 
+import img from "@/src/assets/about.webp";
 import { Button } from "@/src/components/ui/button";
 import {
   parentsVariants,
   variantBlur,
+  variantImage,
   variantScale,
 } from "@/src/utils/animationVariants";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function AboutMe() {
   const t = useTranslations("home.about");
@@ -22,41 +25,20 @@ export default function AboutMe() {
       >
         {t("title")}
       </motion.h1>
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2">
-        <div className="w-full p-5 hidden lg:flex flex-col items-center justify-between bg-ring">
-          <motion.div
-            initial={{
-              rotateY: 90,
-            }}
-            whileInView={{
-              rotateY: 0,
-              transition: {
-                duration: 0.2,
-                ease: "easeOut",
-              },
-            }}
-            className="overflow-hidden clip-path-img flex justify-center mx-10 my-5 max-w-[350px] bg-ring"
-          >
-            {/* <motion.img
-              initial={{
-                y: 200,
-                opacity: 0,
-              }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: {
-                  duration: 0.2,
-                  delay: 0.2,
-                },
-              }}
-              src={image}
-              alt=""
-              className="object-cover"
-            /> */}
-          </motion.div>
-        </div>
-        <div className="md:pl-7">
+      <div className="container mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2">
+        <motion.div
+          variants={variantImage()}
+          initial={"hidden"}
+          whileInView={"visible"}
+          className="w-full min-h-[300px] flex-col items-center overflow-hidden rounded-xl lg:rounded-none justify-between bg-ring"
+        >
+          <Image
+            src={img}
+            alt="tahina"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+        <div className="lg:pl-7">
           <motion.p
             variants={variantBlur(0.1)}
             initial={"hidden"}
