@@ -1,10 +1,17 @@
+"use client";
+
+import heroDark from "@/src/assets/heroDark.png";
+import heroLight from "@/src/assets/heroLight.png";
 import {
   parentsVariants,
+  variantImage,
   variantScale,
   variantTranslate,
 } from "@/src/utils/animationVariants";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 import { BiLogoInstagram } from "react-icons/bi";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -13,6 +20,7 @@ import { FlipWords } from "../../ui/flip-words";
 
 function Hero() {
   const t = useTranslations("home.hero");
+  const { resolvedTheme } = useTheme();
   const socialsNetworks = [
     <FaLinkedin key={"linkedin"} />,
     <IoLogoWhatsapp key={"wattsapp"} />,
@@ -23,7 +31,7 @@ function Hero() {
 
   return (
     <section className="w-full px-6 lg:px-12">
-      <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-12">
+      <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-5">
         <motion.div
           variants={parentsVariants()}
           initial={"hidden"}
@@ -99,8 +107,20 @@ function Hero() {
             </div>
           </motion.div>
         </motion.div>
-        <div className="w-full md:w-1/2 flex items-center justify-center">
-          <div className="w-[200px] md:w-[350px] aspect-square bg-ring rounded-full"></div>
+        <div className="w-full md:w-1/2 relative flex items-center justify-center">
+          <motion.div
+            variants={variantImage()}
+            initial={"hidden"}
+            whileInView={"visible"}
+            className="h-[=50%] overflow-hidden"
+          >
+            <Image
+              src={resolvedTheme === "light" ? heroLight : heroDark}
+              className="object-cover"
+              alt="Hero dark"
+            />
+          </motion.div>
+          {/* <div className="w-[200px] md:w-[350px] aspect-square bg-ring rounded-full"></div> */}
         </div>
       </div>
     </section>

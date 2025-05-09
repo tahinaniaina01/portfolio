@@ -2,6 +2,7 @@
 
 import { buttonVariants } from "@/src/components/ui/button";
 import { usePathname } from "@/src/i18n/routing";
+import { cn } from "@/src/lib/utils";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
@@ -12,7 +13,8 @@ import { ModeToggle } from "../../utils/mode-tooggle";
 
 export default function Header() {
   const [isScroll, setIsScroll] = useState(false);
-  // const [langage, setLangage] = useState<"en" | "fr">("en");
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const ref = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("header");
@@ -43,7 +45,16 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScroll(window.scrollY > 5);
+      const currentScrollY = window.scrollY;
+      setIsScroll(currentScrollY > 5);
+
+      if (currentScrollY < lastScrollY) {
+        setIsVisible(true); // Scroll vers le haut
+      } else if (currentScrollY > lastScrollY) {
+        setIsVisible(false); // Scroll vers le bas
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -51,7 +62,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   function NavBar({ className }: { className?: string }) {
     return (
@@ -80,11 +91,11 @@ export default function Header() {
   return (
     <motion.header
       ref={ref}
-      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full max-w-[100vw] z-[1000] ${
+      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full max-w-[100vw] z-[1000] transition-transform duration-300 ${
         isScroll || isOpen
           ? "shadow-lg border-b-accent border-b-[3px] bg-background"
           : "shadow-none border-none bg-transparent"
-      }`}
+      } ${!isVisible ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="w-full h-full overflow-hidden">
         <HorizontaleScrollBar />
@@ -95,41 +106,23 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
               className="font-heading font-bold text-xl"
             >
-              Tahina
+              Tahina.
             </Link>
           </div>
           <NavBar className="hidden lg:flex" />
-          <div className="hidden lg:flex items-center gap-x-3">
+          <div className="flex items-center gap-x-3">
             <ModeToggle />
             <ChangeLangage />
             <Link
               href={"/contact"}
-              className={buttonVariants({ variant: "default" })}
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "hidden lg:flex"
+              )}
             >
               Work with me
             </Link>
           </div>
-          <div
-            className={`menu ${isOpen ? "open" : ""}`}
-            onClick={() => setIsOpen((curr) => !curr)}
-          ></div>
-        </div>
-        <div
-          className={`fixed bg-accent left-0 w-full flex flex-col items-center gap-y-5 px-3 ${
-            isOpen ? "top-0" : "-top-[120%]"
-          } pt-[100px] pb-5 transition`}
-        >
-          <NavBar className={`flex flex-col text-center gap-y-2`} />
-          <div className="flex md:hidden items-center gap-x-3">
-            <ChangeLangage />
-            <ModeToggle />
-          </div>
-          <Link
-            href={"/contact"}
-            className={buttonVariants({ variant: "default" })}
-          >
-            Work with me
-          </Link>
         </div>
       </div>
     </motion.header>

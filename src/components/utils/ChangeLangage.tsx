@@ -1,5 +1,6 @@
 "use client";
 
+import { usePageTransitionStore } from "@/src/hooks/usePageTransition";
 import { usePathname } from "@/src/i18n/routing";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -14,6 +15,7 @@ import {
 
 function ChangeLangage() {
   const [isPending, startTransition] = useTransition();
+  const { setAnimate } = usePageTransitionStore();
   const router = useRouter();
   const localActive = useLocale();
   const pathname = usePathname();
@@ -22,6 +24,7 @@ function ChangeLangage() {
   return (
     <Select
       onValueChange={(selected) => {
+        setAnimate(true);
         startTransition(() => {
           router.replace(`/${selected}/${pathname}`);
         });

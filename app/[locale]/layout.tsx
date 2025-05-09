@@ -1,3 +1,4 @@
+import BottomNav from "@/src/components/pages/global/BottomNav";
 import Footer from "@/src/components/pages/global/Footer";
 import Header from "@/src/components/pages/global/Header";
 import BubbleCursor from "@/src/components/utils/bulbeCursor";
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
             {/* <StairTransition /> */}
             <main>{children}</main>
             <Footer />
+            <BottomNav />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

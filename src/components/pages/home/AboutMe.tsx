@@ -5,7 +5,6 @@ import { Button } from "@/src/components/ui/button";
 import {
   parentsVariants,
   variantBlur,
-  variantImage,
   variantScale,
 } from "@/src/utils/animationVariants";
 import { motion } from "framer-motion";
@@ -26,18 +25,35 @@ export default function AboutMe() {
         {t("title")}
       </motion.h1>
       <div className="container mx-auto grid gap-5 grid-cols-1 lg:grid-cols-2">
-        <motion.div
-          variants={variantImage()}
-          initial={"hidden"}
-          whileInView={"visible"}
-          className="w-full min-h-[300px] flex-col items-center overflow-hidden rounded-xl lg:rounded-none justify-between bg-ring"
-        >
+        <div className="w-full min-h-[300px] flex-col items-center overflow-hidden rounded-xl lg:rounded-none justify-between bg-ring relative">
+          {/* <div className="grid grid-cols-2 absolute top-0 left-0 right-0 bottom-0 gap-0"> */}
+          <motion.div
+            initial={{ width: "50%" }}
+            whileInView={{ width: "0%", transition: { duration: 0.5 } }}
+            className="w-1/2 h-1/2 bg-background absolute top-0 left-0"
+          />
+          <motion.div
+            initial={{ width: "50%" }}
+            whileInView={{ width: "0%", transition: { duration: 0.5 } }}
+            className="w-1/2 h-1/2 bg-background absolute bottom-1/2 left-1/2"
+          />
+          <motion.div
+            initial={{ width: "50%" }}
+            whileInView={{ width: "0%", transition: { duration: 0.5 } }}
+            className="w-1/2 h-1/2 bg-background absolute top-1/2 right-1/2"
+          />
+          <motion.div
+            initial={{ width: "50%" }}
+            whileInView={{ width: "0%", transition: { duration: 0.5 } }}
+            className="w-1/2 h-1/2 bg-background absolute bottom-0 right-0"
+          />
+          {/* </div> */}
           <Image
             src={img}
             alt="tahina"
             className="w-full h-full object-cover"
           />
-        </motion.div>
+        </div>
         <div className="lg:pl-7">
           <motion.p
             variants={variantBlur(0.1)}
