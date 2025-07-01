@@ -1,3 +1,5 @@
+import type { Variants } from "framer-motion";
+
 export const parentsVariants = (delay = 0) => {
   return {
     hidden: {
@@ -47,7 +49,7 @@ export const variantTranslate = ({
   };
 };
 
-export const variantScale = (delay = 0, scale = 0) => {
+export const variantScale = (delay = 0, scale = 0): Variants => {
   return {
     hidden: {
       scale: scale,
