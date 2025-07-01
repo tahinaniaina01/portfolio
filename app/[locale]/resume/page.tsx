@@ -7,7 +7,7 @@ function About() {
   const { setAnimate } = usePageTransitionStore();
 
   useEffect(() => {
-    setAnimate(false);
+    setAnimate(2);
   }, [setAnimate]);
   return (
     <>

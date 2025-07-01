@@ -91,20 +91,20 @@ export default function Header() {
   return (
     <motion.header
       ref={ref}
-      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full max-w-[100vw] z-[1000] transition-transform duration-300 ${
+      className={`fixed px-6 xl:px-12 py-1 xl:py-3 top-0 left-0 flex justify-center w-full max-w-[100vw] z-1000 transition-transform duration-300 ${
         isScroll || isOpen
-          ? "shadow-lg border-b-accent border-b-[3px] bg-background"
+          ? "shadow-2xl bg-background"
           : "shadow-none border-none bg-transparent"
       } ${!isVisible ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="w-full h-full overflow-hidden">
-        <HorizontaleScrollBar />
-        <div className="container mx-auto flex justify-between items-center py-3 relative z-[1000]">
+        <HorizontaleScrollBar isScroll={isScroll} />
+        <div className="container mx-auto flex justify-between items-center py-3 relative z-1000">
           <div className="">
             <Link
               href={"/"}
               onClick={() => setIsOpen(false)}
-              className="font-heading font-bold text-xl"
+              className="font-heading font-bold text-xl cursor-pointer"
             >
               Tahina.
             </Link>
@@ -117,7 +117,7 @@ export default function Header() {
               href={"/contact"}
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "hidden lg:flex"
+                "hidden lg:flex cursor-pointer"
               )}
             >
               Work with me

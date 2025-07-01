@@ -46,7 +46,6 @@ export default async function LocaleLayout({
             <CanvasCursor />
             <BubbleCursor />
             <Header />
-            {/* <StairTransition /> */}
             <main>{children}</main>
             <Footer />
             <BottomNav />

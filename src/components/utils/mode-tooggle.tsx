@@ -31,16 +31,16 @@ export function ModeToggle() {
       <Button
         variant={"outline"}
         size={"icon"}
-        className="relative flex items-center justify-center aspect-square"
+        className="relative flex items-center justify-center aspect-square cursor-pointer"
         onClick={handleChangeTheme}
       >
         <Moon
-          className={`transition duration-500 z-[1002] ${
+          className={`transition duration-500 z-1002 ${
             resolvedTheme === "light" ? "scale-0" : "scale-100"
           }`}
         />
         <Sun
-          className={`transition duration-500 absolute z-[1002] ${
+          className={`transition duration-500 absolute z-1002 ${
             resolvedTheme === "light" ? "scale-100" : "scale-0"
           }`}
         />
@@ -54,7 +54,7 @@ export function ModeToggle() {
           position.y
         )}px-150vw)] left-[calc(${Math.round(
           position.x
-        )}px-150vw)] rounded-full bg-[#f8ffe5] !z-[-999]`}
+        )}px-150vw)] rounded-full bg-[#f8ffe5] z-[-999]!`}
       ></motion.div> */}
     </>
   );

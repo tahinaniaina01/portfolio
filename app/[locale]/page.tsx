@@ -14,7 +14,11 @@ export default function Home() {
   const { setAnimate } = usePageTransitionStore();
 
   useEffect(() => {
-    setAnimate(false);
+    setAnimate(2);
+
+    return () => {
+      setAnimate(0);
+    };
   }, [setAnimate]);
 
   return (
@@ -25,7 +29,7 @@ export default function Home() {
           opacity: 0,
           transition: { delay: 0.23, duration: 1, ease: "easeInOut" },
         }}
-        className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-[1000]"
+        className="h-screen w-screen fixed bg-background top-0 pointer-events-none z-1000"
       />
       <div className="w-full mt-[72px] xl:mt-[88px]">
         <Hero />

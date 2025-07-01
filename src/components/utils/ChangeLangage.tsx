@@ -24,7 +24,7 @@ function ChangeLangage() {
   return (
     <Select
       onValueChange={(selected) => {
-        setAnimate(true);
+        setAnimate(1);
         startTransition(() => {
           router.replace(`/${selected}/${pathname}`);
         });
@@ -32,7 +32,7 @@ function ChangeLangage() {
       defaultValue={localActive}
       disabled={isPending}
     >
-      <SelectTrigger className="rounded-full">
+      <SelectTrigger className="rounded-full cursor-pointer">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

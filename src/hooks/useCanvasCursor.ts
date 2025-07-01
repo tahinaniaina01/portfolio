@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 
 const useCanvasCursor = () => {
@@ -177,7 +179,7 @@ const useCanvasCursor = () => {
         render();
       }
     });
-    window.addEventListener("blur", () => {
+    window.addEventListener("blur-sm", () => {
       ctx.running = true;
     });
     resizeCanvas();
@@ -198,7 +200,7 @@ const useCanvasCursor = () => {
           render();
         }
       });
-      window.removeEventListener("blur", () => {
+      window.removeEventListener("blur-sm", () => {
         ctx.running = true;
       });
     };

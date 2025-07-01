@@ -18,23 +18,23 @@ function SocialsNetworks() {
   const contacts = [
     {
       icon: (
-        <IoMail className="!w-[30px] md:!w-[40px] !h-[30px] md:!h-[40px]" />
+        <IoMail className="w-[30px]! md:w-[40px]! h-[30px]! md:h-[40px]!" />
       ),
       value: "tahinaniaina02@gmail.com",
     },
     {
-      icon: <Phone className="!w-[30px] md:!w-[40px] !h-[30px] md:!h-[40px]" />,
+      icon: <Phone className="w-[30px]! md:w-[40px]! h-[30px]! md:h-[40px]!" />,
       value: "+261 33 97 762 71",
     },
     {
       icon: (
-        <FaWhatsapp className="!w-[30px] md:!w-[40px] !h-[30px] md:!h-[40px]" />
+        <FaWhatsapp className="w-[30px]! md:w-[40px]! h-[30px]! md:h-[40px]!" />
       ),
       value: "+261 34 50 713 37",
     },
     {
       icon: (
-        <FaFacebook className="!w-[30px] md:!w-[40px] !h-[30px] md:!h-[40px]" />
+        <FaFacebook className="w-[30px]! md:w-[40px]! h-[30px]! md:h-[40px]!" />
       ),
       value: "tahina rkts",
     },

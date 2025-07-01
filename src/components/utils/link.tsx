@@ -23,7 +23,7 @@ const Link = ({
     if (onClick) {
       onClick();
     }
-    setAnimate(true);
+    setAnimate(1);
     await new Promise((resolve) => setTimeout(resolve, 550));
     router.push(String(href));
   };

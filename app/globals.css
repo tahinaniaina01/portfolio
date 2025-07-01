@@ -1,20 +1,195 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@font-face {
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-font-size-sm: 0.75rem;
+  --color-font-size-base: 1rem;
+  --color-font-size-xl: 1.333rem;
+  --color-font-size-2xl: 1.777rem;
+  --color-font-size-3xl: 2.369rem;
+  --color-font-size-4xl: 3.158rem;
+  --color-font-size-5xl: 4.21rem;
+
+  --color-font-family-heading: Chewy;
+  --color-font-family-body: Shippori Antique B1;
+
+  --color-font-weight-normal: 400;
+  --color-font-weight-bold: 700;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility h1 {
+  @apply text-[34px] leading-[42px] font-bold;
+}
+
+@utility h2 {
+  @apply text-[24px] leading-[36px] font-bold;
+}
+
+@utility h3 {
+  @apply text-[20px] leading-[28px] font-semibold;
+}
+
+@utility h4 {
+  @apply text-[18px] leading-[20px] font-medium;
+}
+
+@utility h5 {
+  @apply text-[16px] leading-[24px] font-semibold;
+}
+
+@utility font-heading {
   font-family: chewy;
-  src: url("/fonts/Chewy/Chewy-Regular.ttf");
 }
 
-@font-face {
+@utility font-body {
   font-family: Shippori;
-  src: url("/fonts/Shippori_Antique_B1/ShipporiAntiqueB1-Regular.ttf");
 }
 
-/* body {
+@utility transition {
+  transition: 0.5s;
+}
+
+@utility menu {
+  @apply relative h-[40px] w-[40px] lg:hidden flex items-center justify-center cursor-pointer z-50;
+  transition: 0.5s;
+
+  &::before {
+    @apply content-[''] absolute h-[3px] bg-foreground rounded-[2px] w-4/5;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &::after {
+    @apply content-[''] absolute h-[3px] bg-foreground rounded-[2px] w-4/5;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &::before {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 0px hsl(var(--foreground));
+    transition: 1s;
+  }
+
+  &::after {
+    transform: translateY(10px);
+  }
+
+  &.open::before {
+    box-shadow: none;
+    transform: rotateZ(45deg);
+  }
+
+  &.open::after {
+    transform: rotateZ(-45deg);
+  }
+}
+
+@utility open {
+  &.menu::before {
+    box-shadow: none;
+    transform: rotateZ(45deg);
+  }
+
+  &.menu::after {
+    transform: rotateZ(-45deg);
+  }
+}
+
+@utility shadow-full {
+  box-shadow: 0px 0px 5px 3px hsl(var(--border));
+}
+
+@utility tri-sup {
+  /* clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+}
+
+@utility tri-inf {
+  /* clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
+  clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+}
+
+@utility img-background {
+  background: linear-gradient(to right, #aef3dd, #e3fde3);
+}
+
+/* p {
+  color: #2eefdc;
+} */
+
+@layer utilities {
+  @font-face {
+    font-family: chewy;
+    src: url("/fonts/Chewy/Chewy-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: Shippori;
+    src: url("/fonts/Shippori_Antique_B1/ShipporiAntiqueB1-Regular.ttf");
+  }
+
+  /* body {
   font-family: Arial, Helvetica, sans-serif;
 } */
+}
 
 @layer base {
   :root {
@@ -73,7 +248,7 @@
 }
 
 /*
-  primary : #30efdd
+  primary : #2eefdc
   background : #1a1c19
   muted : #4a5551
 */
@@ -95,83 +270,12 @@
   }
 }
 
-@layer utilities {
-  .h1 {
-    @apply text-[34px] leading-[42px] font-bold;
-  }
-  .h2 {
-    @apply text-[24px] leading-[36px] font-bold;
-  }
-  .h3 {
-    @apply text-[20px] leading-[28px] font-semibold;
-  }
-  .h4 {
-    @apply text-[18px] leading-[20px] font-medium;
-  }
-  .h5 {
-    @apply text-[16px] leading-[24px] font-semibold;
-  }
-
-  .font-heading {
-    font-family: chewy;
-  }
-
-  .font-body {
-    font-family: Shippori;
-  }
-
-  .transition {
-    transition: 0.5s;
-  }
-
-  .menu {
-    @apply relative h-[40px] w-[40px] lg:hidden flex items-center justify-center cursor-pointer z-50;
-    transition: 0.5s;
-  }
-
-  .menu::before,
-  .menu::after {
-    @apply content-[''] absolute h-[3px] bg-foreground rounded-[2px] w-4/5;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .menu::before {
-    transform: translateY(-10px);
-    box-shadow: 0px 10px 0px hsl(var(--foreground));
-    transition: 1s;
-  }
-
-  .menu::after {
-    transform: translateY(10px);
-  }
-
-  .menu.open::before {
-    box-shadow: none;
-    transform: rotateZ(45deg);
-  }
-
-  .menu.open::after {
-    transform: rotateZ(-45deg);
-  }
-
-  .shadow-full {
-    box-shadow: 0px 0px 5px 3px hsl(var(--border));
-  }
-
-  .tri-sup {
-    /* clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  }
-
-  .tri-inf {
-    /* clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
-    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-  }
-  .img-background {
-    background: linear-gradient(to right, #aef3dd, #e3fde3);
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  cursor: default;
 }
-
-/* p {
-  color: #2eefdc;
-} */

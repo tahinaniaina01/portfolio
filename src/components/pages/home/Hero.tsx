@@ -1,7 +1,7 @@
 "use client";
 
-import heroDark from "@/src/assets/heroDark.png";
-import heroLight from "@/src/assets/heroLight.png";
+import heroDark from "@/src/assets/HeroDark.webp";
+import heroLight from "@/src/assets/HeroLight.webp";
 import {
   parentsVariants,
   variantImage,
@@ -31,7 +31,7 @@ function Hero() {
 
   return (
     <section className="w-full px-6 lg:px-12">
-      <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[600px] flex flex-col-reverse md:items-center md:flex-row gap-5">
+      <div className="container mx-auto lg:h-[546px] 2xl:h-[700px] h-[650px] flex flex-col-reverse md:items-center md:flex-row gap-5">
         <motion.div
           variants={parentsVariants()}
           initial={"hidden"}
@@ -112,11 +112,11 @@ function Hero() {
             variants={variantImage()}
             initial={"hidden"}
             whileInView={"visible"}
-            className="h-[=50%] overflow-hidden"
+            className="overflow-hidden"
           >
             <Image
               src={resolvedTheme === "light" ? heroLight : heroDark}
-              className="object-cover"
+              className="h-[250px] md:h-[300px] lg:h-auto w-auto"
               alt="Hero dark"
             />
           </motion.div>

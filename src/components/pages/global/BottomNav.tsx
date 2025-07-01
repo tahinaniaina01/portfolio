@@ -58,10 +58,10 @@ function BottomNav() {
       <div className="max-h-[4.4rem] w-auto mx-auto px-6">
         <ul className="flex items-center gap-4 relative">
           <span
-            className={`bg-ring duration-500 ${links[index].dis} border-4 border-background h-16 w-16 absolute -left-1 -top-9 rounded-full`}
+            className={`bg-ring duration-500 ${links[index].dis} border-5 border-background h-16 w-16 absolute -left-1 -top-9 rounded-full`}
           >
-            <span className="absolute bg-background h-4 w-4 top-6 -left-5 before:content-[''] before:bg-accent before:absolute before:top-0 before:right-0 before:rounded-full before:h-8 before:w-8 "></span>
-            <span className="absolute bg-background h-4 w-4 top-6 -right-5 before:content-[''] before:bg-accent before:absolute before:top-0 before:left-0 before:rounded-full before:h-8 before:w-8 "></span>
+            <span className="absolute bg-background h-4 w-4 top-[23px] -left-5 before:content-[''] before:bg-accent before:absolute before:top-0 before:right-0 before:rounded-full before:h-8 before:w-8 "></span>
+            <span className="absolute bg-background h-4 w-4 top-[23px] -right-5 before:content-[''] before:bg-accent before:absolute before:top-0 before:left-0 before:rounded-full before:h-8 before:w-8 "></span>
           </span>
           {links.map((link, i) => (
             <li key={i}>

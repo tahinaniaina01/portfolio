@@ -5,7 +5,7 @@ import { FaFacebook, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full flex justify-center bg-muted mt-10 mb-[78px]">
+    <footer className="w-full flex justify-center bg-muted mt-10 mb-[78px] lg:mb-0">
       <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
         <p className="text-muted-foreground text-sm text-center sm:text-left">
           copyright © 2024 portfolio — develeopped by{" "}
